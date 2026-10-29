@@ -1,0 +1,1849 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#003A70" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
+  <title>Batyrlar әскери-патриоттық орталығы — ерлік тәрбиесінің мектебі</title>
+  <meta name="description" content="Batyrlar — 12–17 жас аралығындағы жасөспірімдерге арналған әскери-патриоттық орталық. Дене, рухани және азаматтық дайындық." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            night: "#00264D",
+            ink: "#FFFFFF",
+            gold: "#C5A028",
+            bronze: "#D4AF37",
+            mist: "#D5D9D0",
+            skykz: "#003A70",
+            navy: "#003A70",
+            paper: "#F3F4EF"
+          },
+          fontFamily: {
+            sans: ["Inter", "system-ui", "sans-serif"],
+            display: ["Oswald", "Inter", "sans-serif"]
+          },
+          boxShadow: {
+            gold: "0 14px 36px rgba(18,58,120,0.18)",
+            card: "0 8px 22px rgba(14,42,92,0.12)"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root { color-scheme: light; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; overflow-x: hidden; }
+    body {
+      min-width: 0;
+      color: #122033;
+      background-color: #D5D9D0;
+      background-image:
+        linear-gradient(rgba(0,58,112,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,58,112,0.08) 1px, transparent 1px);
+      background-size: 28px 28px, 28px 28px;
+    }
+    .font-display { font-family: Oswald, Inter, sans-serif; letter-spacing: 0.04em; }
+    h1.font-display, h2.font-display { letter-spacing: 0.06em; text-transform: uppercase; }
+    .camo { background: transparent; }
+    .gold-text {
+      color: #8A6E14;
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+    }
+    .gold-border {
+      border: 1px solid #003A70;
+      border-left: 4px solid #C5A028;
+      box-shadow: none;
+    }
+    .lang-btn { color: #F3F4EF; }
+    .lang-btn.active {
+      background: #C5A028;
+      color: #00264D;
+      font-weight: 700;
+    }
+    .nav-link { position: relative; color: #F3F4EF; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.68rem; white-space: nowrap; }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0; bottom: -8px;
+      width: 0; height: 2px;
+      background: #C5A028;
+      transition: width .2s ease;
+    }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    .tab-btn.active { background: #003A70; color: #fff; border-color: #C5A028; }
+    .text-slate-600 { color: #243044 !important; }
+    .text-slate-500 { color: #3A4658 !important; }
+    .text-gold { color: #8A6E14 !important; }
+    .reveal { opacity: 1; transform: none; }
+    html.motion .reveal:not(.show) {
+      opacity: 0;
+      transform: translate3d(0, 28px, 0);
+    }
+    html.motion .reveal.show {
+      opacity: 1;
+      transform: none;
+      transition: opacity .75s cubic-bezier(.22, 1, .36, 1), transform .75s cubic-bezier(.22, 1, .36, 1);
+      transition-delay: var(--d, 0s);
+    }
+    .card-hover {
+      transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease, background .25s ease, border-color .25s ease;
+    }
+    .card-hover:hover {
+      transform: translate3d(0, -6px, 0);
+      box-shadow: 0 18px 40px rgba(0, 38, 77, .14);
+      background: #F7F8F4;
+    }
+    .task-item {
+      transition: transform .3s ease, box-shadow .3s ease, background .25s ease;
+    }
+    .task-item:hover {
+      transform: translate3d(4px, 0, 0);
+      box-shadow: 0 8px 22px rgba(0, 38, 77, .08);
+      background: #EEF0EA;
+    }
+    .about-ico { transition: transform .3s ease, background .25s ease; }
+    .about-ico:hover { transform: scale(1.06); }
+    .icon-wrap {
+      width: 3.5rem; height: 3.5rem;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 0;
+      background: #003A70;
+      border: 1px solid #C5A028;
+      margin-bottom: 1rem;
+      color: #E8D48A;
+    }
+    .about-ico {
+      width: 2.15rem; height: 2.15rem;
+      display: inline-flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      background: #003A70;
+      border: 1px solid #C5A028;
+      color: #E8D48A;
+    }
+    .about-ico svg { width: 1.15rem; height: 1.15rem; }
+    .task-item {
+      display: flex;
+      align-items: flex-start;
+      gap: .85rem;
+      padding: .9rem 1rem;
+      background: #F3F4EF;
+      border: 1px solid rgba(0,58,112,.18);
+      border-left: 4px solid #C5A028;
+    }
+    .task-item p { margin: 0; }
+    .btn-wa {
+      display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+      background: #003A70;
+      color: #F3F4EF; font-weight: 800;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      border-radius: 0; padding: .85rem 1.3rem;
+      border: 2px solid #C5A028;
+      transition: background .25s ease, transform .3s ease, box-shadow .3s ease;
+      box-shadow: none;
+    }
+    .btn-wa:hover {
+      transform: translate3d(0, -2px, 0);
+      background: #00264D;
+      box-shadow: 0 10px 24px rgba(0, 38, 77, .22);
+    }
+    .icon-link {
+      width: 2.25rem; height: 2.25rem;
+      display: inline-flex; align-items: center; justify-content: center;
+      border-radius: 0; border: 1px solid #C5A028;
+      color: #C5A028; transition: background .2s ease, color .2s ease;
+    }
+    .icon-link:hover { background: #C5A028; color: #003A70; }
+    .parallax-layer { will-change: transform; pointer-events: none; }
+    .hero-parallax {
+      position: absolute;
+      inset: -12% -8% -20%;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .hero-par-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,58,112,.11) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,58,112,.11) 1px, transparent 1px);
+      background-size: 56px 56px;
+    }
+    .hero-par-line {
+      position: absolute;
+      top: 18%;
+      left: -10%;
+      width: 70%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #C5A028 40%, transparent);
+      opacity: .55;
+    }
+    .hero-par-line.alt {
+      top: auto;
+      bottom: 22%;
+      left: auto;
+      right: -8%;
+      width: 48%;
+    }
+    .hero-live {
+      animation: pulse-gold 2.4s ease-out infinite;
+    }
+    @keyframes pulse-gold {
+      0% { box-shadow: 0 0 0 0 rgba(197, 160, 40, .55); }
+      70% { box-shadow: 0 0 0 8px rgba(197, 160, 40, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(197, 160, 40, 0); }
+    }
+    #header.is-scrolled {
+      box-shadow: 0 12px 32px rgba(0, 38, 77, .18);
+    }
+    .hud-frame::before, .hud-frame::after {
+      transition: width .35s ease, height .35s ease;
+    }
+    .hud-frame:hover::before, .hud-frame:hover::after {
+      width: 28px;
+      height: 28px;
+    }
+    .gallery-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: .65rem; }
+    @media (min-width: 768px) { .gallery-grid { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+    .gallery-grid button { overflow: hidden; border-radius: 0; border: 1px solid #003A70; aspect-ratio: 3 / 2; box-shadow: none; background: #00264D; }
+    .gallery-grid img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform .45s ease; }
+    .gallery-grid button:hover img { transform: scale(1.04); }
+    .tech-meter { height: 4px; border-radius: 0; background: rgba(0,58,112,.18); overflow: hidden; }
+    .tech-meter span { display: block; height: 100%; background: #003A70; }
+    #lightbox { position: fixed; inset: 0; z-index: 80; background: rgba(0,38,77,.86); display: none; align-items: center; justify-content: center; padding: 1.5rem; }
+    #lightbox.open { display: flex; }
+    #lightbox .lb-frame { position: relative; max-width: min(1100px, 92vw); max-height: 86vh; display: flex; flex-direction: column; align-items: center; gap: .75rem; }
+    #lightbox img { max-width: min(1100px, 92vw); max-height: 78vh; border-radius: 0; border: 2px solid #C5A028; object-fit: contain; background: #00264D; }
+    .lb-btn {
+      width: 3rem; height: 3rem;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: #003A70; color: #E8D48A;
+      border: 2px solid #C5A028; font-size: 1.6rem; line-height: 1;
+      cursor: pointer;
+    }
+    .lb-btn:hover { background: #C5A028; color: #003A70; }
+    .lb-close { position: absolute; top: 1rem; right: 1rem; z-index: 2; }
+    .lb-prev, .lb-next { position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; }
+    .lb-prev { left: .6rem; }
+    .lb-next { right: .6rem; }
+    .lb-count { color: #E8D48A; font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; }
+    .gallery-nav { display: flex; align-items: center; gap: .75rem; margin-top: 1rem; }
+    img, iframe, video { max-width: 100%; }
+    iframe { display: block; }
+    h1, h2, h3 { overflow-wrap: break-word; word-wrap: break-word; color: #003A70; }
+    article.rounded-2xl, .rounded-2xl, .rounded-xl, .rounded-lg, .rounded-md, .rounded-sm { border-radius: 0 !important; }
+    #header {
+      border-bottom: 3px solid #C5A028 !important;
+      background: #003A70 !important;
+      backdrop-filter: none !important;
+      color: #F3F4EF;
+    }
+    #header .gold-text { color: #E8D48A; }
+    #header .text-slate-500 { color: #C5CDD6 !important; }
+    #header .gold-border { border: 1px solid #C5A028; background: transparent; }
+    #header #burger { color: #F3F4EF; border-radius: 0; }
+    footer .gold-border { border: 1px solid #C5A028; color: #E8D48A; }
+    footer .icon-link { color: #E8D48A; }
+    .hud-frame {
+      position: relative;
+      border: 1px solid #003A70;
+      background: #00264D;
+    }
+    .hud-frame::before,
+    .hud-frame::after {
+      content: "";
+      position: absolute;
+      width: 18px; height: 18px;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .hud-frame::before {
+      top: -1px; left: -1px;
+      border-top: 3px solid #C5A028;
+      border-left: 3px solid #C5A028;
+    }
+    .hud-frame::after {
+      bottom: -1px; right: -1px;
+      border-bottom: 3px solid #C5A028;
+      border-right: 3px solid #C5A028;
+    }
+    .tour-stage {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .tour-stage--portrait {
+      width: min(100%, 22rem, 39.375vh);
+      aspect-ratio: 9 / 16;
+      margin-inline: auto;
+    }
+    .tour-stage iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .tour-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .65rem;
+      padding: 1.25rem;
+      text-align: center;
+      color: #E8D48A;
+    }
+    .tour-placeholder .tour-mark {
+      font-family: Oswald, Inter, sans-serif;
+      letter-spacing: .22em;
+      font-size: .72rem;
+      text-transform: uppercase;
+      border: 1px solid #C5A028;
+      padding: .35rem .7rem;
+      color: #E8D48A;
+    }
+    .btn-wa { text-align: center; max-width: 100%; }
+    @media (hover: none) {
+      .card-hover:hover { transform: none; box-shadow: none; }
+      .task-item:hover { transform: none; box-shadow: none; }
+      .btn-wa:hover { transform: none; box-shadow: none; }
+      .gallery-grid button:hover img { transform: none; }
+    }
+    #header { z-index: 90; }
+    #burger { display: inline-flex; position: relative; z-index: 91; }
+    #siteNav { display: none; }
+    #mobileMenu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 85;
+    }
+    #mobileMenu.open { display: block; }
+    #mobileMenu .menu-backdrop {
+      position: absolute; inset: 0; background: rgba(0, 38, 77, .5);
+    }
+    #mobileMenu .lang-btn { color: #003A70; }
+    #mobileMenu .lang-btn.active { background: #003A70; color: #F3F4EF; }
+    #mobileMenu .icon-link { color: #003A70; }
+    #mobileMenu .mobile-link { color: #003A70; border-bottom: 1px solid rgba(0,58,112,.18); padding-bottom: .55rem; }
+    #mobileMenu aside {
+      position: absolute; right: 0; top: 0; height: 100%;
+      width: min(92vw, 24rem);
+      background: #D5D9D0;
+      color: #122033;
+      border-left: 4px solid #C5A028;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-top: calc(80px + env(safe-area-inset-top, 0px));
+      box-shadow: -16px 0 40px rgba(22,58,120,.12);
+    }
+    @media (min-width: 1280px) {
+      #burger { display: none !important; }
+      #siteNav { display: flex; }
+    }
+    .hero-panel {
+      background: #F3F4EF;
+      border: 1px solid #003A70;
+      border-left: 4px solid #C5A028;
+      padding: 1.15rem 1.25rem 1.35rem;
+    }
+    .founders-grid {
+      align-items: stretch;
+    }
+    .founders-grid article h3 {
+      min-height: 2.7em;
+      line-height: 1.25;
+    }
+    .founders-grid .founder-role {
+      min-height: 3.4em;
+    }
+    .founder-photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      height: auto;
+      object-fit: cover;
+      object-position: center 18%;
+      background: #C8CDC4;
+      display: block;
+    }
+    .mentor-photo {
+      width: 100%;
+      height: auto;
+      max-height: min(72vh, 28rem);
+      object-fit: contain;
+      object-position: top center;
+      background: #C8CDC4;
+      flex-shrink: 0;
+    }
+    @media (min-width: 768px) {
+      .mentor-photo {
+        width: 11rem;
+        max-height: none;
+        min-height: 100%;
+        align-self: stretch;
+        object-fit: cover;
+        object-position: center 18%;
+      }
+    }
+    @media (max-width: 767px) {
+      html { scroll-padding-top: 76px; }
+      .btn-wa { width: 100%; padding: .95rem 1rem; }
+      .gallery-grid { gap: .5rem; }
+      .gallery-grid button { border-radius: 0; }
+      #lightbox { padding: .5rem; }
+      #lightbox img { max-height: 70vh; border-radius: 0; }
+      .lb-prev, .lb-next { position: static; transform: none; }
+      .lb-close { top: .5rem; right: .5rem; }
+    }
+    @media (min-width: 640px) and (max-width: 1023px) {
+      .gallery-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+      .btn-wa { width: auto; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      html.motion .reveal:not(.show), html.motion .reveal.show { opacity: 1; transform: none; transition: none; }
+      .parallax-layer, .hero-par-grid, .hero-par-line { transform: none !important; }
+      .hero-live { animation: none; }
+      .card-hover, .task-item, .btn-wa { transition: none; }
+    }
+  </style>
+</head>
+<body class="bg-mist text-navy font-sans antialiased">
+  <div class="fixed top-0 inset-x-0 z-[60] h-[4px] bg-navy"></div>
+  <div class="fixed top-[4px] inset-x-0 z-[60] h-[3px] bg-gold"></div>
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[80] bg-gold text-night px-3 py-2 rounded" data-i18n="skipToContent">Негізгі мазмұнға өту</a>
+
+  <!-- Header -->
+  <header id="header" class="fixed top-0 inset-x-0 z-50 border-b-2 border-gold bg-paper pt-[env(safe-area-inset-top)]">
+    <div class="max-w-7xl mx-auto px-3 sm:px-5 lg:px-6 h-[68px] sm:h-[76px] lg:h-[84px] flex items-center justify-between gap-2">
+      <a href="#hero" class="flex items-center gap-2 sm:gap-3 min-w-0 group">
+        <img src="logo.png" width="64" height="64" class="shrink-0 w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 rounded-full object-cover ring-2 ring-gold/70 shadow-[0_0_22px_rgba(212,175,55,0.35)]" data-i18n-alt="logoAlt" alt="BATYRLAR" />
+        <span class="min-w-0">
+          <span class="block font-display text-sm sm:text-base lg:text-lg leading-none gold-text" data-i18n="brandName">BATYRLAR</span>
+          <span class="hidden md:block text-[10px] sm:text-[11px] text-slate-500 tracking-wide whitespace-normal leading-tight" data-i18n="brandSubtitle">Әскери-патриоттық орталық</span>
+        </span>
+      </a>
+
+      <nav id="siteNav" class="hidden xl:flex items-center gap-3 2xl:gap-5 text-sm text-navy" aria-label="Main">
+        <a href="#about" class="nav-link" data-i18n="navAbout">Орталық туралы</a>
+        <a href="#program" class="nav-link" data-i18n="navProgram">Бағдарлама</a>
+        <a href="#mentors" class="nav-link" data-i18n="navMentors">Басшылық</a>
+        <a href="#founders" class="nav-link" data-i18n="navFounders">Құрылтайшылар</a>
+        <a href="#tours" class="nav-link" data-i18n="navTours">Виртуальные туры</a>
+        <a href="#reviews" class="nav-link" data-i18n="navReviews">Пікірлер</a>
+        <a href="#contacts" class="nav-link" data-i18n="navContacts">Байланыс</a>
+      </nav>
+
+      <div class="flex items-center gap-1 sm:gap-2 shrink-0">
+        <a href="https://www.instagram.com/batyrlargovkz/" target="_blank" rel="noopener noreferrer" class="icon-link hidden sm:inline-flex" data-i18n-aria="instagramAria" aria-label="Instagram">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm5 4.6A4.4 4.4 0 1 0 16.4 12 4.4 4.4 0 0 0 12 7.6zm0 7.2A2.8 2.8 0 1 1 14.8 12 2.8 2.8 0 0 1 12 14.8zM17.7 6.3a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/></svg>
+        </a>
+        <div class="flex items-center rounded-md sm:rounded-lg gold-border bg-paper p-0.5 text-xs sm:text-sm" role="group" aria-label="Language">
+          <button type="button" class="lang-btn active px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded sm:rounded-md font-semibold" data-lang="kz">KZ</button>
+          <button type="button" class="lang-btn px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded sm:rounded-md font-semibold" data-lang="en">EN</button>
+          <button type="button" class="lang-btn px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded sm:rounded-md font-semibold" data-lang="ru">RU</button>
+        </div>
+        <a href="https://wa.me/77001000011" target="_blank" rel="noopener noreferrer" class="hidden lg:inline-flex btn-wa !w-auto !px-3 lg:!px-4 !py-2 text-sm" data-i18n="ctaEnroll">Тіркелу</a>
+        <button type="button" id="burger" class="xl:hidden w-10 h-10 rounded-lg gold-border flex items-center justify-center shrink-0" data-i18n-aria="menuOpen" aria-label="Мәзірді ашу" aria-expanded="false">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div id="mobileMenu">
+    <div class="menu-backdrop" data-close-menu></div>
+    <aside class="p-5 sm:p-6 pt-8 flex flex-col gap-4">
+      <div class="flex items-center justify-between">
+        <img src="logo.png" width="64" height="64" class="w-14 h-14 rounded-full object-cover ring-2 ring-gold/60" data-i18n-alt="logoAlt" alt="BATYRLAR" />
+        <button type="button" class="w-10 h-10 rounded-lg gold-border" data-close-menu aria-label="Close">✕</button>
+      </div>
+      <div class="flex items-center rounded-lg gold-border bg-mist p-0.5 text-sm w-fit" role="group" aria-label="Language">
+        <button type="button" class="lang-btn active px-3.5 py-2 rounded-md font-semibold" data-lang="kz">KZ</button>
+        <button type="button" class="lang-btn px-3.5 py-2 rounded-md font-semibold" data-lang="en">EN</button>
+        <button type="button" class="lang-btn px-3.5 py-2 rounded-md font-semibold" data-lang="ru">RU</button>
+      </div>
+      <a href="https://www.instagram.com/batyrlargovkz/" target="_blank" rel="noopener noreferrer" class="icon-link w-10 h-10" data-i18n-aria="instagramAria" aria-label="Instagram">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm5 4.6A4.4 4.4 0 1 0 16.4 12 4.4 4.4 0 0 0 12 7.6zm0 7.2A2.8 2.8 0 1 1 14.8 12 2.8 2.8 0 0 1 12 14.8zM17.7 6.3a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/></svg>
+      </a>
+      <a href="#about" class="mobile-link font-display uppercase tracking-wider text-base py-1" data-i18n="navAbout">Орталық туралы</a>
+      <a href="#program" class="mobile-link font-display uppercase tracking-wider text-base py-1" data-i18n="navProgram">Бағдарлама</a>
+      <a href="#mentors" class="mobile-link font-display uppercase tracking-wider text-base py-1" data-i18n="navMentors">Басшылық</a>
+      <a href="#founders" class="mobile-link font-display uppercase tracking-wider text-base py-1" data-i18n="navFounders">Құрылтайшылар</a>
+      <a href="#base" class="mobile-link font-display uppercase tracking-wider text-base py-1" data-i18n="baseEyebrow">Оқу базасы</a>
+      <a href="#gallery" class="mobile-link font-display uppercase tracking-wider text-base py-1" data-i18n="galleryEyebrow">Галерея</a>
+      <a href="#tours" class="mobile-link font-display uppercase tracking-wider text-base py-1" data-i18n="navTours">Виртуальные туры</a>
+      <a href="#reviews" class="mobile-link font-display uppercase tracking-wider text-base py-1" data-i18n="navReviews">Пікірлер</a>
+      <a href="#faq" class="mobile-link font-display uppercase tracking-wider text-base py-1" data-i18n="navFaq">Сұрақ-жауап</a>
+      <a href="#contacts" class="mobile-link font-display uppercase tracking-wider text-base py-1" data-i18n="navContacts">Байланыс</a>
+      <a href="https://wa.me/77001000011" target="_blank" rel="noopener noreferrer" class="mt-4 w-full btn-wa" data-i18n="ctaEnroll">Тіркелу</a>
+    </aside>
+  </div>
+
+  <main id="main">
+    <!-- Hero -->
+    <section id="hero" class="relative pt-[88px] pb-12 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-24 overflow-hidden">
+      <div class="hero-parallax" aria-hidden="true">
+        <div class="hero-par-grid parallax-layer" data-parallax="0.16"></div>
+        <div class="hero-par-line parallax-layer" data-parallax="-0.06"></div>
+        <div class="hero-par-line alt parallax-layer" data-parallax="0.1"></div>
+      </div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-8 lg:gap-10 items-start">
+        <div class="hero-panel">
+          <img src="logo.png" width="128" height="128" class="w-20 h-20 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full object-cover mb-4 sm:mb-5 ring-2 ring-gold/60 shadow-gold" data-i18n-alt="logoAlt" alt="BATYRLAR" />
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 gold-border bg-paper text-[10px] sm:text-xs uppercase tracking-[0.2em] text-navy mb-4 sm:mb-5 max-w-full">
+            <span class="hero-live w-1.5 h-1.5 rounded-full bg-gold shrink-0"></span>
+            <span data-i18n="heroBadge">Қазақстанның заманауи әскери-патриоттық орталығы</span>
+          </div>
+          <h1 class="font-display text-[1.7rem] leading-tight sm:text-4xl lg:text-5xl xl:text-[56px] sm:leading-[1.08] font-bold mb-4 sm:mb-5">
+            <span data-i18n="heroTitleBefore">Batyrlar әскери-патриоттық орталығы —</span>
+            <span class="gold-text" data-i18n="heroTitleAccent"> ерлік тәрбиесінің мектебі</span>
+          </h1>
+          <p class="text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl mb-6 sm:mb-8" data-i18n="heroSubtitle">Біздің миссиямыз — жастарға құмар ойынға тәуелділік, нашақорлық пен діни радикализмге лайықты балама ұсынып, өмірдің жарқын жолын таңдауға мүмкіндік беру.</p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="https://wa.me/77001000011" target="_blank" rel="noopener noreferrer" class="btn-wa" data-i18n="ctaApplyNow">Өтінішті қазір қалдыру</a>
+            <a href="#video" class="inline-flex justify-center items-center px-6 py-3.5 gold-border bg-paper text-navy font-bold uppercase tracking-[0.12em] hover:bg-navy hover:text-gold transition" data-i18n="ctaWatch">Орталықтың ашылуын көру</a>
+          </div>
+        </div>
+        <div id="video" class="w-full lg:mt-2">
+          <div class="hero-panel mb-4">
+            <p class="text-gold text-xs tracking-[0.25em] uppercase mb-2" data-i18n="videoLabel">Ашылу салтанаты</p>
+            <h2 class="font-display text-xl sm:text-2xl lg:text-3xl" data-i18n="ctaWatch">Орталықтың ашылуын көру</h2>
+          </div>
+          <div class="relative hud-frame overflow-hidden">
+            <div class="aspect-video">
+              <iframe class="w-full h-full" src="https://player.vimeo.com/video/1088756819?h=7bcbeb0290&title=0&byline=0&portrait=0" title="Batyrlar opening" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="relative py-16 sm:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <p class="text-gold text-xs tracking-[0.25em] uppercase mb-3" data-i18n="aboutEyebrow">Орталық туралы</p>
+        <h2 class="font-display text-2xl sm:text-4xl lg:text-5xl mb-4" data-i18n="aboutTitle">Мұнда өз ісіне жауап беруге үйретеді</h2>
+        <p class="text-slate-600 max-w-3xl text-base sm:text-lg mb-6" data-i18n="aboutLead">«BATYRLAR» әскери-патриоттық орталығы — жасөспірімдер дене, рухани және азаматтық-патриоттық дайындықтан өтетін орын. Біз қызметтегі және запастағы офицерлердің тәжірибесін патриоттық құндылықтармен ұштастырып, ҰҚК, ІІМ және Қорғаныс министрлігінің жоғары оқу орындарына түсуге практикалық дайындық береміз, сондай-ақ өмірде және төтенше жағдайларда қажет дағдыларды үйретеміз.</p>
+        <a href="https://wa.me/77001000011" target="_blank" rel="noopener noreferrer" class="btn-wa mb-10" data-i18n="ctaApplyNow">Өтінішті қазір қалдыру</a>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+          <article class="reveal rounded-2xl bg-paper gold-border p-6">
+            <h3 class="font-display text-2xl gold-text mb-3 flex items-center gap-3">
+              <span class="about-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2l2.35 7.23h7.6l-6.15 4.47 2.35 7.23L12 16.66 5.85 21.13l2.35-7.23L2.05 9.43h7.6z"/></svg>
+              </span>
+              <span data-i18n="missionTitle">Миссия</span>
+            </h3>
+            <p class="text-slate-600 leading-relaxed" data-i18n="missionText">Рухы мықты қазақстандықтардың — Отанға қызмет етуге, оның мүддесін қорғауға және елдің болашағын қалыптастыруға дайын патриоттардың жаңа буынын тәрбиелеу.</p>
+          </article>
+          <article class="reveal rounded-2xl bg-paper gold-border p-6">
+            <h3 class="font-display text-2xl gold-text mb-3 flex items-center gap-3">
+              <span class="about-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/><path d="M12 3v3M21 12h-3M12 21v-3M3 12h3"/></svg>
+              </span>
+              <span data-i18n="goalsTitle">Мақсаттар</span>
+            </h3>
+            <ul class="text-slate-600 space-y-2 text-sm leading-relaxed list-disc pl-5">
+              <li data-i18n="goal1">12–17 жас аралығындағы жасөспірімдерге кешенді дайындық: дене, рухани және азаматтық.</li>
+              <li data-i18n="goal2">Қазақстан жастары арасында әскери-патриоттық тәрбие жүйесін дамытуға үлес қосу.</li>
+              <li data-i18n="goal3">Дәстүрлі қазақ және жалпыұлттық құндылықтарды, тарихи-рухани мұраны нығайту.</li>
+            </ul>
+          </article>
+          <article class="reveal rounded-2xl bg-paper gold-border p-6">
+            <h3 class="font-display text-2xl gold-text mb-3 flex items-center gap-3">
+              <span class="about-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 14.5c0-2.4 2.9-4.2 7-4.2s7 1.8 7 4.2"/><path d="M8 10.2c.3-2.6 1.8-4.4 4-4.4s3.7 1.8 4 4.4"/><path d="M4.5 18h15"/><path d="M8.2 18l1.8-2.2h4l1.8 2.2"/></svg>
+              </span>
+              <span data-i18n="aboutAgeTitle">Тәлімгерлер</span>
+            </h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-5" data-i18n="aboutAgeText">Сабақтарды Қарулы Күштер, ҰҚК және ІІМ-нің қызметтегі әрі запастағы офицерлері, сондай-ақ әскери нұсқаушылар жүргізеді. Түлектер бейінді әскери және құқық қорғау жоғары оқу орындарына түсуге дайындық алады.</p>
+            <a href="https://wa.me/77001000011" target="_blank" rel="noopener noreferrer" class="btn-wa w-full text-sm" data-i18n="ctaApplyNow">Өтінішті қазір қалдыру</a>
+          </article>
+        </div>
+
+        <div class="rounded-2xl bg-paper gold-border p-6 sm:p-8">
+          <h3 class="font-display text-2xl mb-5" data-i18n="tasksTitle">Орталықтың міндеттері</h3>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm text-slate-600">
+            <div class="task-item">
+              <span class="about-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l8 3.2v6.4c0 4.6-3.3 8.1-8 9.6-4.7-1.5-8-5-8-9.6V6.2L12 3z"/></svg>
+              </span>
+              <p data-i18n="task1">Мінез, стресске төзімділік, жауапкершілік және өзіндік тәртіпті қалыптастыру.</p>
+            </div>
+            <div class="task-item">
+              <span class="about-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 18L14 8M10 8h4V4"/><path d="M20 6L10 16M14 16H10v4"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg>
+              </span>
+              <p data-i18n="task2">Көшбасшылықты тәрбиелеу, тәртіпті дарыту, тактикалық, дене және атыс дайындығы, қолданбалы жекпе-жек.</p>
+            </div>
+            <div class="task-item">
+              <span class="about-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 14.5c0-2.4 2.9-4.2 7-4.2s7 1.8 7 4.2"/><path d="M8 10.2c.3-2.6 1.8-4.4 4-4.4s3.7 1.8 4 4.4"/><path d="M4.5 18h15"/><path d="M8.2 18l1.8-2.2h4l1.8 2.2"/></svg>
+              </span>
+              <p data-i18n="task3">ҚР Қарулы Күштері, ҰҚК және ІІМ қызметтегі әрі запастағы офицерлерінің тәлімгерлігі.</p>
+            </div>
+            <div class="task-item">
+              <span class="about-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10.5 12 6l9 4.5-9 4.5L3 10.5z"/><path d="M6.5 12.2v4.2c2.2 1.4 8.8 1.4 11 0v-4.2"/><path d="M21 10.5v5"/></svg>
+              </span>
+              <p data-i18n="task4">Қорғаныс министрлігі, ІІМ және ҰҚК бейінді жоғары оқу орындарына түсуге дайындық.</p>
+            </div>
+            <div class="task-item">
+              <span class="about-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 21V4"/><path d="M6 5h11l-2.2 3.4L17 12H6"/></svg>
+              </span>
+              <p data-i18n="task5">Патриоттық акциялар, жарыстар, қарқынды дайындықтар, лагерьлер және ардагерлермен кездесулер.</p>
+            </div>
+            <div class="task-item">
+              <span class="about-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="2.2"/><path d="M12 4.5v3.2M12 16.3v3.2M4.5 12h3.2M16.3 12h3.2"/><path d="M6.6 6.6l2.3 2.3M15.1 15.1l2.3 2.3M17.4 6.6l-2.3 2.3M8.9 15.1l-2.3 2.3"/></svg>
+              </span>
+              <p data-i18n="task6">Волонтерлік жобалар, медиамазмұн және «BATYRLAR» қозғалысын өңірлерге кеңейту.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Program -->
+    <section id="program" class="py-16 sm:py-24 bg-[#C4CBBE]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <p class="text-gold text-xs tracking-[0.25em] uppercase mb-3" data-i18n="programEyebrow">Оқу бағдарламасы</p>
+        <h2 class="font-display text-2xl sm:text-4xl lg:text-5xl mb-3" data-i18n="programTitle">Бағыттар</h2>
+        <p class="text-slate-600 max-w-2xl mb-10" data-i18n="programSubtitle">Арнайы бөлімшелер мен Қарулы Күштер әдістемесіне сүйенген төрт негізгі модуль.</p>
+        <div class="grid md:grid-cols-2 gap-5">
+          <article class="reveal card-hover rounded-2xl bg-paper gold-border shadow-card p-5 sm:p-6 flex flex-col sm:flex-row gap-4">
+            <div class="shrink-0 w-12 h-12 rounded-sm bg-navy text-gold flex items-center justify-center font-display text-xl border border-gold">01</div>
+            <div>
+              <h3 class="font-display text-xl sm:text-2xl mb-2" data-i18n="prog1Title">Дене дайындығы және жекпе-жек</h3>
+              <p class="text-slate-600 text-sm leading-relaxed" data-i18n="prog1Text">Төзімділік пен тәртіп — мінез қалыптастырудың негізі.</p>
+            </div>
+          </article>
+          <article class="reveal card-hover rounded-2xl bg-paper gold-border shadow-card p-5 sm:p-6 flex flex-col sm:flex-row gap-4">
+            <div class="shrink-0 w-12 h-12 rounded-sm bg-navy text-gold flex items-center justify-center font-display text-xl border border-gold">02</div>
+            <div>
+              <h3 class="font-display text-xl sm:text-2xl mb-2" data-i18n="prog2Title">Эмоцияны басқару және стресті меңгеру</h3>
+              <p class="text-slate-600 text-sm leading-relaxed" data-i18n="prog2Text">Тренингтер, стресске төзімділік: ерік-жігерді тәрбиелеу.</p>
+            </div>
+          </article>
+          <article class="reveal card-hover rounded-2xl bg-paper gold-border shadow-card p-5 sm:p-6 flex flex-col sm:flex-row gap-4">
+            <div class="shrink-0 w-12 h-12 rounded-sm bg-navy text-gold flex items-center justify-center font-display text-xl border border-gold">03</div>
+            <div>
+              <h3 class="font-display text-xl sm:text-2xl mb-2" data-i18n="prog3Title">Әскери-қолданбалы дағдылар</h3>
+              <p class="text-slate-600 text-sm leading-relaxed" data-i18n="prog3Text">Тактикалық медицина, әскери топография, атыс тренажерлері — нақты далалық дағдылар.</p>
+            </div>
+          </article>
+          <article class="reveal card-hover rounded-2xl bg-paper gold-border shadow-card p-5 sm:p-6 flex flex-col sm:flex-row gap-4">
+            <div class="shrink-0 w-12 h-12 rounded-sm bg-navy text-gold flex items-center justify-center font-display text-xl border border-gold">04</div>
+            <div>
+              <h3 class="font-display text-xl sm:text-2xl mb-2" data-i18n="prog4Title">Азаматтық білім және кәсіптік бағдар</h3>
+              <p class="text-slate-600 text-sm leading-relaxed" data-i18n="prog4Text">ҚР мемлекеттік рәміздері, Конституция, құқық пен борыш; әскери жоғары оқу орындарына түсу жеңілдіктері.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mentors -->
+    <section id="mentors" class="py-16 sm:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <h2 class="font-display text-2xl sm:text-4xl lg:text-5xl mb-8 sm:mb-10" data-i18n="mentorsTitle">Басшылық</h2>
+        <div class="grid md:grid-cols-2 gap-5 sm:gap-6">
+          <article class="reveal card-hover rounded-2xl bg-paper gold-border shadow-card overflow-hidden flex flex-col md:flex-row">
+            <img src="https://batyrlar.asia/wp-content/uploads/2025/06/%D0%94%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD-%D0%B1%D0%B5%D0%B7-%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.png" alt="Аманжол Зейноллаұлы Уразбаев" class="mentor-photo" />
+            <div class="p-5">
+              <h3 class="font-display text-xl" data-i18n="m1Name">Аманжол Зейноллаұлы Уразбаев</h3>
+              <p class="text-gold text-sm mb-3" data-i18n="m1Role">«BATYRLAR» әскери-патриоттық орталығының негізін қалаушы және Alash Camp лагерінің жетекшісі</p>
+              <p class="text-slate-600 text-sm leading-relaxed" data-i18n="m1Bio">ҚР ҰҚК запастағы полковнигі, заң ғылымдарының кандидаты, «Әскери-патриоттық және іздестіру қозғалысы қауымдастығы» РҚБ төрағасы. Ұлттық қауіпсіздік, ТМД Антитеррорлық орталығы мен БҰҰ құрылымдарындағы тәжірибесі бар. Орталықта стратегия, идеялық дайындық және бағдарлама мазмұнына жауапты.</p>
+            </div>
+          </article>
+          <article class="reveal card-hover rounded-2xl bg-paper gold-border shadow-card overflow-hidden flex flex-col md:flex-row">
+            <img src="https://batyrlar.asia/wp-content/uploads/2025/12/%D0%94%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD-%D0%B1%D0%B5%D0%B7-%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.png" alt="Омарбек Әмір Болатұлы" class="mentor-photo" />
+            <div class="p-5">
+              <h3 class="font-display text-xl" data-i18n="m2Name">Омарбек Әмір Болатұлы</h3>
+              <p class="text-gold text-sm mb-3" data-i18n="m2Role">Стратегиялық даму, цифрландыру және ЖИ жөніндегі төрағаның орынбасары</p>
+              <p class="text-slate-600 text-sm leading-relaxed" data-i18n="m2Bio">IT-кәсіпкер, YSOFT.KZ негізін қалаушы. ҚР Денсаулық сақтау министрлігімен бірге іске асырылған әлеуметтік-медициналық IT-жобаның авторы. IT-аналитик ретінде 14 жыл, маркетолог ретінде 8 жыл тәжірибесі бар. Бағдарламалаудан республикалық олимпиаданың жүлдегері.</p>
+            </div>
+          </article>
+          <article class="reveal card-hover rounded-2xl bg-paper gold-border shadow-card overflow-hidden flex flex-col md:flex-row">
+            <img src="https://batyrlar.asia/wp-content/uploads/2025/06/%D0%94%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD-%D0%B1%D0%B5%D0%B7-%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-2.png" alt="Алтынбек Исаканов" class="mentor-photo" />
+            <div class="p-5">
+              <h3 class="font-display text-xl" data-i18n="m3Name">Алтынбек Айдарбекұлы Исаканов</h3>
+              <p class="text-gold text-sm mb-3" data-i18n="m3Role">Жетекшінің орынбасары</p>
+              <p class="text-slate-600 text-sm leading-relaxed" data-i18n="m3Bio">Запастағы подполковник, С-300 әуе шабуылына қарсы қорғаныс радиоэлектрондық жүйелерінің инженері. Взвод командирінен әскери бөлім командирінің орынбасары — бас инженерге дейінгі жолдан өткен. Орталықта қолданбалы әскери дайындық пен инженерлік-техникалық модульдерге жетекшілік етеді.</p>
+            </div>
+          </article>
+          <article class="reveal card-hover rounded-2xl bg-paper gold-border shadow-card overflow-hidden flex flex-col md:flex-row">
+            <img src="https://batyrlar.asia/wp-content/uploads/2025/06/%D0%94%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD-%D0%B1%D0%B5%D0%B7-%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-3.png" alt="Канат Жумагулов" class="mentor-photo" />
+            <div class="p-5">
+              <h3 class="font-display text-xl" data-i18n="m4Name">Қанат Есімбекұлы Жұмағұлов</h3>
+              <p class="text-gold text-sm mb-3" data-i18n="m4Role">1-взвод командирі</p>
+              <p class="text-slate-600 text-sm leading-relaxed" data-i18n="m4Bio">Бастапқы әскери және технологиялық дайындық оқытушысы, педагогикалық өтілі — 23 жыл, «Разведчик» әскери-спорт клубының жетекшісі. «Айбын» және армиялық қолданбалы жекпе-жек жарыстарының жүлдегерлерін тәрбиелеген. Б. Керімбаев атындағы кадет сыныбын басқарады. Орталықта тактика, бастапқы әскери дайындық және спорт бағдарламаларын жүргізеді.</p>
+            </div>
+          </article>
+        </div>
+        <p class="text-slate-600 max-w-3xl mt-10 mb-6 text-lg" data-i18n="mentorsLead">Әр жасөспірімді тәртіп, ерлік пен абырой иелері — Қарулы Күштер, ҰҚК және ІІМ офицерлері қолдайды. Бұл теоретиктер емес, әскери қызметтен өткен және тәжірибесін жаңа буынға беруге дайын тәлімгерлер.</p>
+        <a href="https://wa.me/77001000011" target="_blank" rel="noopener noreferrer" class="btn-wa" data-i18n="ctaApplyNow">Өтінішті қазір қалдыру</a>
+      </div>
+    </section>
+
+    <!-- Founders of the Association -->
+    <section id="founders" class="py-16 sm:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <p class="text-gold text-xs tracking-[0.25em] uppercase mb-3" data-i18n="foundersEyebrow">Қауымдастық</p>
+        <h2 class="font-display text-2xl sm:text-4xl lg:text-5xl mb-3" data-i18n="foundersTitle">Қауымдастық құрылтайшылары</h2>
+        <p class="text-slate-600 max-w-3xl mb-10 text-base sm:text-lg" data-i18n="foundersLead">Қауымдастықтың құрылтайшылары — ел қауіпсіздігі, қорғаныс және тарихи жады саласындағы беделді тұлғалар.</p>
+        <div class="founders-grid grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <article class="reveal card-hover bg-paper gold-border overflow-hidden flex flex-col h-full">
+            <img src="https://batyrlar.asia/wp-content/uploads/2025/06/%D0%94%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD-%D0%B1%D0%B5%D0%B7-%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.png" alt="" class="founder-photo" data-i18n-alt="f0Name" />
+            <div class="p-4 flex flex-col flex-1">
+              <p class="text-[11px] uppercase tracking-[0.2em] text-gold mb-1">01</p>
+              <h3 class="font-display text-lg mb-2" data-i18n="f0Name">Аманжол Зейноллаұлы Уразбаев</h3>
+              <p class="founder-role text-gold text-sm font-semibold mb-2" data-i18n="f0Role">«Әскери-патриоттық және іздестіру қозғалысы қауымдастығы» РҚБ төрағасы</p>
+              <p class="text-slate-600 text-sm leading-relaxed" data-i18n="f0Bio">ҚР ҰҚК запастағы полковнигі, заң ғылымдарының кандидаты. «BATYRLAR» әскери-патриоттық орталығының негізін қалаушы.</p>
+            </div>
+          </article>
+          <article class="reveal card-hover bg-paper gold-border overflow-hidden flex flex-col h-full">
+            <img src="founders/sarsekov.jpg" alt="" class="founder-photo" data-i18n-alt="f2Name" />
+            <div class="p-4 flex flex-col flex-1">
+              <p class="text-[11px] uppercase tracking-[0.2em] text-gold mb-1">02</p>
+              <h3 class="font-display text-lg mb-2" data-i18n="f2Name">Сәрсеков Бексұлтан Сәрсекұлы</h3>
+              <p class="founder-role text-gold text-sm font-semibold mb-2" data-i18n="f2Role">ҚР Қауіпсіздік Кеңесінің бұрынғы хатшысы</p>
+              <p class="text-slate-600 text-sm leading-relaxed" data-i18n="f2Bio">Запастағы генерал-лейтенант, заң ғылымдарының кандидаты.</p>
+            </div>
+          </article>
+          <article class="reveal card-hover bg-paper gold-border overflow-hidden flex flex-col h-full">
+            <img src="founders/koibakov.jpg" alt="" class="founder-photo" data-i18n-alt="f1Name" />
+            <div class="p-4 flex flex-col flex-1">
+              <p class="text-[11px] uppercase tracking-[0.2em] text-gold mb-1">03</p>
+              <h3 class="font-display text-lg mb-2" data-i18n="f1Name">Қойбақов Сейітжан Мелдебекұлы</h3>
+              <p class="founder-role text-gold text-sm font-semibold mb-2" data-i18n="f1Role">ҰҚК «Арыстан» арнайы бөлімшесінің бұрынғы командирі</p>
+              <p class="text-slate-600 text-sm leading-relaxed" data-i18n="f1Bio">Запастағы генерал-майор, заң ғылымдарының докторы.</p>
+            </div>
+          </article>
+          <article class="reveal card-hover bg-paper gold-border overflow-hidden flex flex-col h-full">
+            <img src="founders/tulembaeva.png" alt="" class="founder-photo" data-i18n-alt="f3Name" />
+            <div class="p-4 flex flex-col flex-1">
+              <p class="text-[11px] uppercase tracking-[0.2em] text-gold mb-1">04</p>
+              <h3 class="font-display text-lg mb-2" data-i18n="f3Name">Төлембаева Айгүл Нұралиқызы</h3>
+              <p class="founder-role text-gold text-sm font-semibold mb-2" data-i18n="f3Role">Қорғаныс министрінің кеңесшісі</p>
+              <p class="text-slate-600 text-sm leading-relaxed" data-i18n="f3Bio">Экономика ғылымдарының докторы, профессор.</p>
+            </div>
+          </article>
+          <article class="reveal card-hover bg-paper gold-border overflow-hidden flex flex-col h-full">
+            <img src="founders/baikadamova.png" alt="" class="founder-photo" data-i18n-alt="f4Name" />
+            <div class="p-4 flex flex-col flex-1">
+              <p class="text-[11px] uppercase tracking-[0.2em] text-gold mb-1">05</p>
+              <h3 class="font-display text-lg mb-2" data-i18n="f4Name">Байқадамова Алуа Бақытжанқызы</h3>
+              <p class="founder-role text-gold text-sm font-semibold mb-2" data-i18n="f4Role">Қоғам қайраткері</p>
+              <p class="text-slate-600 text-sm leading-relaxed" data-i18n="f4Bio">Генерал И.В. Панфиловтың немересі.</p>
+            </div>
+          </article>
+          <article class="reveal card-hover bg-paper gold-border overflow-hidden flex flex-col h-full">
+            <img src="founders/akhmetova.jpg" alt="" class="founder-photo" data-i18n-alt="f5Name" />
+            <div class="p-4 flex flex-col flex-1">
+              <p class="text-[11px] uppercase tracking-[0.2em] text-gold mb-1">06</p>
+              <h3 class="font-display text-lg mb-2" data-i18n="f5Name">Ахметова Лайла Сейсембекқызы</h3>
+              <p class="founder-role text-gold text-sm font-semibold mb-2" data-i18n="f5Role">Тарих ғылымдарының докторы, профессор</p>
+              <p class="text-slate-600 text-sm leading-relaxed" data-i18n="f5Bio">Әл-Фараби атындағы ҚазҰУ профессоры. Ұлы Отан соғысы туралы 7 кітап пен 100-ден астам жарияланымның авторы.</p>
+            </div>
+          </article>
+          <article class="reveal card-hover bg-paper gold-border overflow-hidden flex flex-col h-full">
+            <img src="founders/abraimov.jpg" alt="" class="founder-photo" data-i18n-alt="f6Name" />
+            <div class="p-4 flex flex-col flex-1">
+              <p class="text-[11px] uppercase tracking-[0.2em] text-gold mb-1">07</p>
+              <h3 class="font-display text-lg mb-2" data-i18n="f6Name">Абраимов Досай Қасымұлы</h3>
+              <p class="founder-role text-gold text-sm font-semibold mb-2" data-i18n="f6Role">ҚР Қорғаныс министрлігінің Әскери-ғылыми орталығының бұрынғы басшысы</p>
+              <p class="text-slate-600 text-sm leading-relaxed" data-i18n="f6Bio">Запастағы полковник, әскери ғылымдарының докторы, профессор.</p>
+            </div>
+          </article>
+          <article class="reveal card-hover bg-paper gold-border overflow-hidden flex flex-col h-full">
+            <img src="founders/batyrkhanov.jpg" alt="" class="founder-photo" data-i18n-alt="f7Name" />
+            <div class="p-4 flex flex-col flex-1">
+              <p class="text-[11px] uppercase tracking-[0.2em] text-gold mb-1">08</p>
+              <h3 class="font-display text-lg mb-2" data-i18n="f7Name">Батырханов Ахмедияр Қуанұлы</h3>
+              <p class="founder-role text-gold text-sm font-semibold mb-2" data-i18n="f7Role">М. Мәметова музейінің директоры, іздестіруші</p>
+              <p class="text-slate-600 text-sm leading-relaxed" data-i18n="f7Bio">Ұлы Отан соғысы туралы 6 кітап пен 50-ден астам жарияланымның авторы.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Base & equipment -->
+    <section id="base" class="py-16 sm:py-24 bg-[#C4CBBE]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <p class="text-gold text-xs tracking-[0.25em] uppercase mb-3" data-i18n="baseEyebrow">Оқу базасы</p>
+        <h2 class="font-display text-2xl sm:text-4xl lg:text-5xl mb-4" data-i18n="baseTitle">1 500 м² және 6 бірлік техника</h2>
+        <p class="text-slate-600 max-w-4xl mb-10 leading-relaxed" data-i18n="baseLead">BATYRLAR орталығы 1 500 м²-ден астам ғимаратта орналасқан. Мұнда жекпе-жек залы, атыс тирі, бастапқы әскери дайындық кабинеттері, шахмат сыныбы, саптық алаң және әскери-оқу техникасының 6 бірлігі бар. Техника жасөспірімдерге практикалық таныстыру, оның тарихын, құрылымы мен мақсатын оқыту, әскери-патриоттық тәрбие және кәсіптік бағдар үшін пайдаланылады.</p>
+        <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
+          <article class="reveal card-hover rounded-2xl bg-paper gold-border shadow-card p-5">
+            <div class="flex items-start justify-between gap-3 mb-4">
+              <div class="icon-wrap !mb-0"><svg class="w-8 h-8" viewBox="0 0 64 32" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="8" y="14" width="40" height="10" rx="1"/><circle cx="16" cy="26" r="3"/><circle cx="28" cy="26" r="3"/><circle cx="40" cy="26" r="3"/><path d="M18 14 L22 6h12l6 8"/><path d="M48 16h8v6h-8"/></svg></div>
+              <span class="font-display text-gold text-xl">01</span>
+            </div>
+            <h3 class="font-display text-2xl">T-72</h3>
+            <p class="text-gold text-sm mb-1" data-i18n="eq1Type">Негізгі жауынгерлік танк</p>
+            <p class="text-navy text-sm font-semibold mb-3" data-i18n="eq1Weight">Салмағы: 46,5 т</p>
+            <p class="text-slate-600 text-sm mb-4" data-i18n="eq1Spec">Ұрыс алаңында атыспен жою</p>
+            <div class="tech-meter mb-2"><span style="width:95%"></span></div>
+            <p class="text-[11px] uppercase tracking-widest text-slate-500" data-i18n="eqPower">Жауынгерлік қуат</p>
+          </article>
+          <article class="reveal card-hover rounded-2xl bg-paper gold-border shadow-card p-5">
+            <div class="flex items-start justify-between gap-3 mb-4">
+              <div class="icon-wrap !mb-0"><svg class="w-8 h-8" viewBox="0 0 64 32" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 18h36l8-6h8v12H6z"/><circle cx="16" cy="26" r="3"/><circle cx="30" cy="26" r="3"/><circle cx="44" cy="26" r="3"/><path d="M18 12h10v6H18z"/></svg></div>
+              <span class="font-display text-gold text-xl">02</span>
+            </div>
+            <h3 class="font-display text-2xl">БМП-2</h3>
+            <p class="text-gold text-sm mb-1" data-i18n="eq2Type">Жаяу әскердің жауынгерлік машинасы</p>
+            <p class="text-navy text-sm font-semibold mb-3" data-i18n="eq2Weight">Салмағы: 14,3 т</p>
+            <p class="text-slate-600 text-sm mb-4" data-i18n="eq2Spec">Десантты жеткізу және қолдау</p>
+            <div class="tech-meter mb-2"><span style="width:80%"></span></div>
+            <p class="text-[11px] uppercase tracking-widest text-slate-500" data-i18n="eqMobility">Ұтқырлық</p>
+          </article>
+          <article class="reveal card-hover rounded-2xl bg-paper gold-border shadow-card p-5">
+            <div class="flex items-start justify-between gap-3 mb-4">
+              <div class="icon-wrap !mb-0"><svg class="w-8 h-8" viewBox="0 0 64 32" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="12" width="48" height="12" rx="6"/><circle cx="16" cy="26" r="3"/><circle cx="32" cy="26" r="3"/><circle cx="48" cy="26" r="3"/><path d="M22 12v-4h12v4"/></svg></div>
+              <span class="font-display text-gold text-xl">03</span>
+            </div>
+            <h3 class="font-display text-2xl">БТР-70</h3>
+            <p class="text-gold text-sm mb-1" data-i18n="eq3Type">Бронетранспортер</p>
+            <p class="text-navy text-sm font-semibold mb-3" data-i18n="eq3Weight">Салмағы: 11,5 т</p>
+            <p class="text-slate-600 text-sm mb-4" data-i18n="eq3Spec">Жеке құрамды қорғаумен тасымалдау</p>
+            <div class="tech-meter mb-2"><span style="width:72%"></span></div>
+            <p class="text-[11px] uppercase tracking-widest text-slate-500" data-i18n="eqProtect">Қорғаныс</p>
+          </article>
+          <article class="reveal card-hover rounded-2xl bg-paper gold-border shadow-card p-5">
+            <div class="flex items-start justify-between gap-3 mb-4">
+              <div class="icon-wrap !mb-0"><svg class="w-8 h-8" viewBox="0 0 64 32" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 18h28l10-5 8 5v6H10z"/><circle cx="18" cy="26" r="3.2"/><circle cx="42" cy="26" r="3.2"/><path d="M24 13h8"/></svg></div>
+              <span class="font-display text-gold text-xl">04</span>
+            </div>
+            <h3 class="font-display text-2xl">БРДМ-2</h3>
+            <p class="text-gold text-sm mb-1" data-i18n="eq4Type">Жауынгерлік барлау-дозорлық машина</p>
+            <p class="text-navy text-sm font-semibold mb-3" data-i18n="eq4Weight">Салмағы: 7 т</p>
+            <p class="text-slate-600 text-sm mb-4" data-i18n="eq4Spec">Барлау және бақылау</p>
+            <div class="tech-meter mb-2"><span style="width:78%"></span></div>
+            <p class="text-[11px] uppercase tracking-widest text-slate-500" data-i18n="eqRecon">Барлау</p>
+          </article>
+          <article class="reveal card-hover rounded-2xl bg-paper gold-border shadow-card p-5">
+            <div class="flex items-start justify-between gap-3 mb-4">
+              <div class="icon-wrap !mb-0"><svg class="w-8 h-8" viewBox="0 0 64 32" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 24h28"/><path d="M14 24l8-10 22-4"/><circle cx="20" cy="26" r="3"/><circle cx="32" cy="26" r="3"/></svg></div>
+              <span class="font-display text-gold text-xl">05</span>
+            </div>
+            <h3 class="font-display text-2xl">Д-30</h3>
+            <p class="text-gold text-sm mb-1" data-i18n="eq5Type">Гаубица</p>
+            <p class="text-navy text-sm font-semibold mb-3" data-i18n="eq5Weight">Салмағы: 3,2 т</p>
+            <p class="text-slate-600 text-sm mb-4" data-i18n="eq5Spec">Артиллериялық атыс жүйесі</p>
+            <div class="tech-meter mb-2"><span style="width:88%"></span></div>
+            <p class="text-[11px] uppercase tracking-widest text-slate-500" data-i18n="eqRange">Атыс қашықтығы</p>
+          </article>
+          <article class="reveal card-hover rounded-2xl bg-paper gold-border shadow-card p-5">
+            <div class="flex items-start justify-between gap-3 mb-4">
+              <div class="icon-wrap !mb-0"><svg class="w-8 h-8" viewBox="0 0 64 32" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 24h20"/><path d="M16 24 L28 10h22"/><circle cx="18" cy="26" r="2.6"/><circle cx="28" cy="26" r="2.6"/></svg></div>
+              <span class="font-display text-gold text-xl">06</span>
+            </div>
+            <h3 class="font-display text-2xl">ЗиС-3</h3>
+            <p class="text-gold text-sm mb-1" data-i18n="eq6Type">76-мм дивизиондық зеңбірек</p>
+            <p class="text-navy text-sm font-semibold mb-3" data-i18n="eq6Weight">Салмағы: 1,2 т</p>
+            <p class="text-slate-600 text-sm mb-4" data-i18n="eq6Spec">Тарихи артиллериялық жүйе</p>
+            <div class="tech-meter mb-2"><span style="width:70%"></span></div>
+            <p class="text-[11px] uppercase tracking-widest text-slate-500" data-i18n="eqHeritage">Тарихи мұра</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="py-16 sm:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <p class="text-gold text-xs tracking-[0.25em] uppercase mb-3" data-i18n="galleryEyebrow">Галерея</p>
+        <h2 class="font-display text-2xl sm:text-4xl lg:text-5xl mb-6 sm:mb-8" data-i18n="galleryTitle">Орталық өмірі</h2>
+        <div class="gallery-grid">
+          <button type="button" data-full="gallery/full/10.jpg"><img src="gallery/10.jpg" alt="" data-i18n-alt="galleryAlt"></button>
+          <button type="button" data-full="gallery/full/09.jpg"><img src="gallery/09.jpg" alt="" data-i18n-alt="galleryAlt"></button>
+          <button type="button" data-full="gallery/full/12.jpg"><img src="gallery/12.jpg" alt="" data-i18n-alt="galleryAlt"></button>
+          <button type="button" data-full="gallery/full/20.jpg"><img src="gallery/20.jpg" alt="" data-i18n-alt="galleryAlt"></button>
+          <button type="button" data-full="gallery/full/21.jpg"><img src="gallery/21.jpg" alt="" data-i18n-alt="galleryAlt"></button>
+          <button type="button" data-full="gallery/01.jpg"><img src="gallery/01.jpg" alt="" data-i18n-alt="galleryAlt"></button>
+          <button type="button" data-full="gallery/02.jpg"><img src="gallery/02.jpg" alt="" data-i18n-alt="galleryAlt"></button>
+          <button type="button" data-full="gallery/03.jpg"><img src="gallery/03.jpg" alt="" data-i18n-alt="galleryAlt"></button>
+          <button type="button" data-full="gallery/04.jpg"><img src="gallery/04.jpg" alt="" data-i18n-alt="galleryAlt"></button>
+          <button type="button" data-full="gallery/05.jpg"><img src="gallery/05.jpg" alt="" data-i18n-alt="galleryAlt"></button>
+          <button type="button" data-full="gallery/06.jpg"><img src="gallery/06.jpg" alt="" data-i18n-alt="galleryAlt"></button>
+          <button type="button" data-full="gallery/07.jpg"><img src="gallery/07.jpg" alt="" data-i18n-alt="galleryAlt"></button>
+          <button type="button" data-full="gallery/08.jpg"><img src="gallery/08.jpg" alt="" data-i18n-alt="galleryAlt"></button>
+          <button type="button" data-full="gallery/full/11.jpg"><img src="gallery/11.jpg" alt="" data-i18n-alt="galleryAlt"></button>
+          <button type="button" data-full="gallery/full/13.jpg"><img src="gallery/13.jpg" alt="" data-i18n-alt="galleryAlt"></button>
+          <button type="button" data-full="gallery/full/14.jpg"><img src="gallery/14.jpg" alt="" data-i18n-alt="galleryAlt"></button>
+          <button type="button" data-full="gallery/full/15.jpg"><img src="gallery/15.jpg" alt="" data-i18n-alt="galleryAlt"></button>
+          <button type="button" data-full="gallery/full/16.jpg"><img src="gallery/16.jpg" alt="" data-i18n-alt="galleryAlt"></button>
+          <button type="button" data-full="gallery/full/17.jpg"><img src="gallery/17.jpg" alt="" data-i18n-alt="galleryAlt"></button>
+          <button type="button" data-full="gallery/full/18.jpg"><img src="gallery/18.jpg" alt="" data-i18n-alt="galleryAlt"></button>
+          <button type="button" data-full="gallery/full/19.jpg"><img src="gallery/19.jpg" alt="" data-i18n-alt="galleryAlt"></button>
+        </div>
+        <div class="gallery-nav">
+          <button type="button" id="galleryPrev" class="lb-btn" data-i18n-aria="prevPhoto" aria-label="Алдыңғы фото">‹</button>
+          <button type="button" id="galleryNext" class="lb-btn" data-i18n-aria="nextPhoto" aria-label="Келесі фото">›</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Virtual tours -->
+    <section id="tours" class="py-16 sm:py-24 bg-[#C4CBBE]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <p class="text-gold text-xs tracking-[0.25em] uppercase mb-3" data-i18n="toursEyebrow">BATYRLAR · 360°</p>
+        <h2 class="font-display text-2xl sm:text-4xl lg:text-5xl mb-3" data-i18n="toursTitle">Виртуальные туры</h2>
+        <p class="text-slate-600 max-w-3xl mb-10 text-base sm:text-lg" data-i18n="toursLead">Посмотрите на центр, пограничный городок и учебную базу в формате видео 360°.</p>
+        <div class="grid md:grid-cols-2 gap-5">
+          <article class="reveal bg-paper gold-border overflow-hidden">
+            <div class="tour-stage hud-frame">
+              <iframe src="https://player.vimeo.com/video/1240650935?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" loading="lazy" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen data-i18n-title="tourCenterTitle" title="Залы, плац и учебная база BATYRLAR"></iframe>
+            </div>
+            <div class="p-5 sm:p-6">
+              <p class="text-[11px] uppercase tracking-[0.2em] text-gold mb-2">01</p>
+              <h3 class="font-display text-xl sm:text-2xl mb-2" data-i18n="tourCenterTitle">Залы, плац и учебная база BATYRLAR</h3>
+              <p class="text-slate-600 text-sm leading-relaxed" data-i18n="tourCenterText">Осмотрите залы, плац и учебную базу BATYRLAR в формате 360°.</p>
+            </div>
+          </article>
+          <article class="reveal bg-paper gold-border overflow-hidden">
+            <div class="tour-stage tour-stage--portrait hud-frame">
+              <iframe src="https://player.vimeo.com/video/1240651869?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" loading="lazy" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen data-i18n-title="tourBorderTitle" title="Виртуальный тур по пограничному городку"></iframe>
+            </div>
+            <div class="p-5 sm:p-6">
+              <p class="text-[11px] uppercase tracking-[0.2em] text-gold mb-2">02</p>
+              <h3 class="font-display text-xl sm:text-2xl mb-2" data-i18n="tourBorderTitle">Виртуальный тур по пограничному городку</h3>
+              <p class="text-slate-600 text-sm leading-relaxed" data-i18n="tourBorderText">Загляните в пограничный городок и познакомьтесь с его учебной инфраструктурой.</p>
+            </div>
+          </article>
+          <article class="reveal bg-paper gold-border overflow-hidden">
+            <div class="tour-stage hud-frame">
+              <iframe src="https://player.vimeo.com/video/1240652847?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" loading="lazy" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen data-i18n-title="tourGearTitle" title="Виртуальный тур по военной технике"></iframe>
+            </div>
+            <div class="p-5 sm:p-6">
+              <p class="text-[11px] uppercase tracking-[0.2em] text-gold mb-2">03</p>
+              <h3 class="font-display text-xl sm:text-2xl mb-2" data-i18n="tourGearTitle">Виртуальный тур по военной технике</h3>
+              <p class="text-slate-600 text-sm leading-relaxed" data-i18n="tourGearText">Познакомьтесь с военной техникой учебной базы BATYRLAR.</p>
+            </div>
+          </article>
+          <article class="reveal bg-paper gold-border overflow-hidden">
+            <div class="tour-stage hud-frame">
+              <iframe src="https://player.vimeo.com/video/1240653277?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" loading="lazy" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen data-i18n-title="tourTentTitle" title="Виртуальный тур по военной палатке и спортивному комплексу"></iframe>
+            </div>
+            <div class="p-5 sm:p-6">
+              <p class="text-[11px] uppercase tracking-[0.2em] text-gold mb-2">04</p>
+              <h3 class="font-display text-xl sm:text-2xl mb-2" data-i18n="tourTentTitle">Виртуальный тур по военной палатке и спортивному комплексу</h3>
+              <p class="text-slate-600 text-sm leading-relaxed" data-i18n="tourTentText">Осмотрите военную палатку и спортивный комплекс центра.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews" class="py-16 sm:py-24 bg-[#C4CBBE]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <p class="text-gold text-xs tracking-[0.25em] uppercase mb-3" data-i18n="reviewsEyebrow">Пікірлер</p>
+        <h2 class="font-display text-2xl sm:text-4xl lg:text-5xl mb-6 sm:mb-8" data-i18n="reviewsTitle">Тәрбиеленушілер не дейді</h2>
+        <div class="flex flex-wrap gap-2 mb-6" role="tablist">
+          <button type="button" class="tab-btn active px-3 sm:px-4 py-2 rounded-lg gold-border text-xs sm:text-sm" data-tab="0">Айдар Нұрланұлы</button>
+          <button type="button" class="tab-btn px-3 sm:px-4 py-2 rounded-lg gold-border text-xs sm:text-sm text-slate-600" data-tab="1">Ерасыл Мұратбек</button>
+          <button type="button" class="tab-btn px-3 sm:px-4 py-2 rounded-lg gold-border text-xs sm:text-sm text-slate-600" data-tab="2">Темірлан Сейтжан</button>
+        </div>
+        <div class="relative">
+          <article class="review-slide rounded-2xl bg-paper gold-border shadow-card p-5 sm:p-8 lg:p-10 min-h-[180px] sm:min-h-[220px]">
+            <p class="text-4xl text-gold leading-none mb-4">“</p>
+            <p class="text-lg sm:text-xl lg:text-2xl leading-relaxed mb-6" data-i18n="r1Quote">«BATYRLAR» орталығы мінезімді шыңдады. Енді өзіме сенімдімін және нені мақсат ететінімді білемін.</p>
+            <p class="font-semibold" data-i18n="r1Name">Айдар Нұрланұлы</p>
+            <p class="text-gold text-sm" data-i18n="r1Meta">15 жас · тәрбиеленуші</p>
+          </article>
+          <article class="review-slide hidden rounded-2xl bg-paper gold-border shadow-card p-5 sm:p-8 lg:p-10 min-h-[180px] sm:min-h-[220px]">
+            <p class="text-4xl text-gold leading-none mb-4">“</p>
+            <p class="text-lg sm:text-xl lg:text-2xl leading-relaxed mb-6" data-i18n="r2Quote">Офицерлер бізге тек тәртіпті ғана емес, ерлікті, жауапкершілікті және абыройды үйретеді.</p>
+            <p class="font-semibold" data-i18n="r2Name">Ерасыл Мұратбек</p>
+            <p class="text-gold text-sm" data-i18n="r2Meta">16 жас · тәрбиеленуші</p>
+          </article>
+          <article class="review-slide hidden rounded-2xl bg-paper gold-border shadow-card p-5 sm:p-8 lg:p-10 min-h-[180px] sm:min-h-[220px]">
+            <p class="text-4xl text-gold leading-none mb-4">“</p>
+            <p class="text-lg sm:text-xl lg:text-2xl leading-relaxed mb-6" data-i18n="r3Quote">«BATYRLAR» — жай ғана үйірме емес. Бұл нағыз ер азаматтардың мектебі.</p>
+            <p class="font-semibold" data-i18n="r3Name">Темірлан Сейтжан</p>
+            <p class="text-gold text-sm" data-i18n="r3Meta">15 жас · тәрбиеленуші</p>
+          </article>
+          <div class="flex gap-3 mt-5">
+            <button type="button" id="prevReview" class="w-11 h-11 rounded-lg gold-border hover:bg-gold/10" data-i18n-aria="prevReview" aria-label="Алдыңғы пікір">‹</button>
+            <button type="button" id="nextReview" class="w-11 h-11 rounded-lg gold-border hover:bg-gold/10" data-i18n-aria="nextReview" aria-label="Келесі пікір">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-16 sm:py-24">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <p class="text-gold text-xs tracking-[0.25em] uppercase mb-3" data-i18n="faqEyebrow">Сұрақ-жауап</p>
+        <h2 class="font-display text-2xl sm:text-4xl lg:text-5xl mb-8" data-i18n="faqTitle">Жиі қойылатын сұрақтар</h2>
+        <div class="space-y-3" id="faqList">
+          <details class="group rounded-xl bg-paper gold-border p-5" open>
+            <summary class="cursor-pointer font-semibold list-none flex justify-between gap-3"><span data-i18n="faq1Q">«BATYRLAR» орталығына кім жазыла алады?</span><span class="text-gold">+</span></summary>
+            <p class="text-slate-600 mt-3 text-sm leading-relaxed" data-i18n="faq1A">Дене, рухани және патриоттық тұрғыдан дамығысы келетін 12–17 жас аралығындағы жасөспірімдер.</p>
+          </details>
+          <details class="group rounded-xl bg-paper gold-border p-5">
+            <summary class="cursor-pointer font-semibold list-none flex justify-between gap-3"><span data-i18n="faq2Q">Оқу қанша тұрады?</span><span class="text-gold">+</span></summary>
+            <p class="text-slate-600 mt-3 text-sm leading-relaxed" data-i18n="faq2A">Айына 10 000 теңге.</p>
+          </details>
+          <details class="group rounded-xl bg-paper gold-border p-5">
+            <summary class="cursor-pointer font-semibold list-none flex justify-between gap-3"><span data-i18n="faq3Q">Сабақтар қалай өтеді?</span><span class="text-gold">+</span></summary>
+            <p class="text-slate-600 mt-3 text-sm leading-relaxed" data-i18n="faq3A">Орталықта, аптасына 3 рет, әр сабақ үш сағат. Демалыс күндері далалық жиындар мен шеберлік сабақтары өтеді.</p>
+          </details>
+          <details class="group rounded-xl bg-paper gold-border p-5">
+            <summary class="cursor-pointer font-semibold list-none flex justify-between gap-3"><span data-i18n="faq4Q">Кім оқытады және тәлім береді?</span><span class="text-gold">+</span></summary>
+            <p class="text-slate-600 mt-3 text-sm leading-relaxed" data-i18n="faq4A">ҰҚК, Қорғаныс министрлігі, ІІМ арнайы бөлімшелерінің офицерлері, тәжірибелі педагогтар мен ардагерлер.</p>
+          </details>
+          <details class="group rounded-xl bg-paper gold-border p-5">
+            <summary class="cursor-pointer font-semibold list-none flex justify-between gap-3"><span data-i18n="faq5Q">Түлектер не алады?</span><span class="text-gold">+</span></summary>
+            <p class="text-slate-600 mt-3 text-sm leading-relaxed" data-i18n="faq5A">ІІМ, Қорғаныс министрлігі және ҰҚК жоғары оқу орындарына түсуге дайындық, мінез, төзімділік пен көшбасшылық қасиеттер.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacts -->
+    <section id="contacts" class="py-16 sm:py-24 bg-[#C4CBBE]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-10">
+        <div>
+          <p class="text-gold text-xs tracking-[0.25em] uppercase mb-3" data-i18n="contactsEyebrow">Байланыс</p>
+          <h2 class="font-display text-2xl sm:text-4xl lg:text-5xl mb-6" data-i18n="contactsTitle">Сабаққа жазылыңыз</h2>
+          <div class="space-y-5 text-slate-600">
+            <div>
+              <p class="text-gold text-xs uppercase tracking-widest mb-1" data-i18n="addressLabel">Мекенжай</p>
+              <p data-i18n="addressFull">Астана қ., Сарайшық ауданы, Мичурино ш/а, Алакөл көшесі, 18, 1-қабат</p>
+            </div>
+            <div>
+              <p class="text-gold text-xs uppercase tracking-widest mb-1" data-i18n="phoneLabel">Телефон</p>
+              <a href="tel:+77001000011" class="hover:text-gold">+7 700 100 0011</a>
+            </div>
+            <div>
+              <p class="text-gold text-xs uppercase tracking-widest mb-1" data-i18n="emailLabel">Email</p>
+              <a href="mailto:info@example.com" class="hover:text-gold">info@example.com</a>
+            </div>
+            <div class="rounded-xl border border-gold/50 p-5 bg-navy text-white">
+              <p class="text-gold text-xs uppercase tracking-widest mb-2" data-i18n="scheduleLabel">Оқу кестесі</p>
+              <p class="font-semibold" data-i18n="scheduleDays">Дүйсенбі / Сәрсенбі / Жұма</p>
+              <p class="mb-2" data-i18n="scheduleTime">15:30 – 18:30</p>
+              <p class="text-sm text-white/75" data-i18n="scheduleWeekend">Сенбі–жексенбі — демалыс</p>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-2xl bg-paper gold-border shadow-card p-6 sm:p-8 flex flex-col justify-center items-start gap-5">
+          <h3 class="font-display text-3xl" data-i18n="formTitle">Сабаққа жазылу</h3>
+          <p class="text-slate-600" data-i18n="waLead">WhatsApp арқылы өтініш қалдырыңыз — біз жақын арада жауап береміз.</p>
+          <a href="https://wa.me/77001000011" target="_blank" rel="noopener noreferrer" class="btn-wa w-full" data-i18n="ctaApplyNow">Өтінішті қазір қалдыру</a>
+          <a href="https://go.2gis.com/H1GVY" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg gold-border text-gold font-semibold hover:bg-gold/10 transition w-full justify-center" data-i18n="map2gis">2GIS</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t-[3px] border-gold py-6 sm:py-8 bg-navy text-paper">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row md:items-center justify-between gap-4 text-sm text-paper/80">
+      <div class="flex items-center gap-3">
+        <img src="logo.png" width="48" height="48" class="w-12 h-12 rounded-full object-cover ring-2 ring-gold/50" data-i18n-alt="logoAlt" alt="BATYRLAR" />
+        <p>© <span id="year"></span> BATYRLAR. <span data-i18n="footerCopy">Әскери-патриоттық орталық</span></p>
+      </div>
+      <div class="flex flex-wrap items-center gap-3">
+        <p data-i18n="footerTagline">© Барлық құқықтар қорғалған</p>
+        <a href="https://go.2gis.com/H1GVY" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-lg gold-border text-gold font-semibold hover:bg-gold/10" data-i18n="map2gis">2GIS</a>
+        <a href="https://www.instagram.com/batyrlargovkz/" target="_blank" rel="noopener noreferrer" class="icon-link" data-i18n-aria="instagramAria" aria-label="Instagram">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm5 4.6A4.4 4.4 0 1 0 16.4 12 4.4 4.4 0 0 0 12 7.6zm0 7.2A2.8 2.8 0 1 1 14.8 12 2.8 2.8 0 0 1 12 14.8zM17.7 6.3a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="lightbox" aria-hidden="true">
+    <button type="button" class="lb-btn lb-close" data-close-lb data-i18n-aria="closePhoto" aria-label="Жабу">✕</button>
+    <button type="button" class="lb-btn lb-prev" data-lb-prev data-i18n-aria="prevPhoto" aria-label="Алдыңғы фото">‹</button>
+    <button type="button" class="lb-btn lb-next" data-lb-next data-i18n-aria="nextPhoto" aria-label="Келесі фото">›</button>
+    <div class="lb-frame">
+      <img alt="" />
+      <p class="lb-count" id="lbCount"></p>
+    </div>
+  </div>
+
+  <script>
+    const translations = {
+      kz: {
+        skipToContent: "Негізгі мазмұнға өту",
+        metaTitle: "Batyrlar әскери-патриоттық орталығы — ерлік тәрбиесінің мектебі",
+        logoAlt: "Batyrlar әскери-патриоттық орталығының логотипі",
+        brandName: "BATYRLAR",
+        brandSubtitle: "Әскери-патриоттық орталық",
+        navAbout: "Орталық туралы",
+        navProgram: "Бағдарлама",
+        navFounders: "Құрылтайшылар",
+        navMentors: "Басшылық",
+        navReviews: "Пікірлер",
+        navTours: "Виртуалды турлар",
+        navContacts: "Байланыс",
+        navFaq: "Сұрақ-жауап",
+        ctaEnroll: "Тіркелу",
+        ctaApplyNow: "Өтінішті қазір қалдыру",
+        ctaWatch: "Орталықтың ашылуын көру",
+        instagramAria: "Instagram",
+        menuOpen: "Мәзірді ашу",
+        heroBadge: "Қазақстанның заманауи әскери-патриоттық орталығы",
+        heroTitleBefore: "Batyrlar әскери-патриоттық орталығы —",
+        heroTitleAccent: " ерлік тәрбиесінің мектебі",
+        heroSubtitle: "Біздің миссиямыз — жастарға құмар ойынға тәуелділік, нашақорлық пен діни радикализмге лайықты балама ұсынып, өмірдің жарқын жолын таңдауға мүмкіндік беру.",
+        statAge: "Жас шамасы",
+        statDays: "Аптасына сабақ",
+        statFreeValue: "10 000 ₸",
+        statFree: "Оқу құны",
+        statOfficersValue: "ҰҚК «Арыстан»",
+        statOfficers: "Оқытушылар мен нұсқаушылар",
+        videoLabel: "Ашылу салтанаты",
+        pillar1Title: "Дене күші",
+        pillar1Text: "Жекпе-жек, төзімділік, саптық дайындық.",
+        pillar2Title: "Мінез",
+        pillar2Text: "Эмоция, стресс, нағыз ержүректік.",
+        pillar3Title: "Тәлімгерлер",
+        pillar3Text: "Әскер мен арнайы қызмет офицерлері.",
+        pillar4Title: "Болашақ",
+        pillar4Text: "ІІМ, Қорғаныс министрлігі, ҰҚК жоғары оқу орындарына түсу.",
+        aboutEyebrow: "Орталық туралы",
+        aboutTitle: "Мұнда өз ісіне жауап беруге үйретеді",
+        aboutLead: "«BATYRLAR» әскери-патриоттық орталығы — жасөспірімдер дене, рухани және азаматтық-патриоттық дайындықтан өтетін орын. Біз қызметтегі және запастағы офицерлердің тәжірибесін патриоттық құндылықтармен ұштастырып, ҰҚК, ІІМ және Қорғаныс министрлігінің жоғары оқу орындарына түсуге практикалық дайындық береміз, сондай-ақ өмірде және төтенше жағдайларда қажет дағдыларды үйретеміз.",
+        missionTitle: "Миссия",
+        missionText: "Рухы мықты қазақстандықтардың — Отанға қызмет етуге, оның мүддесін қорғауға және елдің болашағын қалыптастыруға дайын патриоттардың жаңа буынын тәрбиелеу.",
+        goalsTitle: "Мақсаттар",
+        goal1: "12–17 жас аралығындағы жасөспірімдерге кешенді дайындық: дене, рухани және азаматтық.",
+        goal2: "Қазақстан жастары арасында әскери-патриоттық тәрбие жүйесін дамытуға үлес қосу.",
+        goal3: "Дәстүрлі қазақ және жалпыұлттық құндылықтарды, тарихи-рухани мұраны нығайту.",
+        aboutAgeTitle: "Тәлімгерлер",
+        aboutAgeText: "Сабақтарды Қарулы Күштер, ҰҚК және ІІМ-нің қызметтегі әрі запастағы офицерлері, сондай-ақ әскери нұсқаушылар жүргізеді. Түлектер бейінді әскери және құқық қорғау жоғары оқу орындарына түсуге дайындық алады.",
+        tasksTitle: "Орталықтың міндеттері",
+        task1: "Мінез, стресске төзімділік, жауапкершілік және өзіндік тәртіпті қалыптастыру.",
+        task2: "Көшбасшылықты тәрбиелеу, тәртіпті дарыту, тактикалық, дене және атыс дайындығы, қолданбалы жекпе-жек.",
+        task3: "ҚР Қарулы Күштері, ҰҚК және ІІМ қызметтегі әрі запастағы офицерлерінің тәлімгерлігі.",
+        task4: "Қорғаныс министрлігі, ІІМ және ҰҚК бейінді жоғары оқу орындарына түсуге дайындық.",
+        task5: "Патриоттық акциялар, жарыстар, қарқынды дайындықтар, лагерьлер және ардагерлермен кездесулер.",
+        task6: "Волонтерлік жобалар, медиамазмұн және «BATYRLAR» қозғалысын өңірлерге кеңейту.",
+        programEyebrow: "Оқу бағдарламасы",
+        programTitle: "Бағыттар",
+        programSubtitle: "Арнайы бөлімшелер мен Қарулы Күштер әдістемесіне сүйенген төрт негізгі модуль.",
+        prog1Title: "Дене дайындығы және жекпе-жек",
+        prog1Text: "Төзімділік пен тәртіп — мінез қалыптастырудың негізі.",
+        prog2Title: "Эмоцияны басқару және стресті меңгеру",
+        prog2Text: "Тренингтер, стресске төзімділік: ерік-жігерді тәрбиелеу.",
+        prog3Title: "Әскери-қолданбалы дағдылар",
+        prog3Text: "Тактикалық медицина, әскери топография, атыс тренажерлері — нақты далалық дағдылар.",
+        prog4Title: "Азаматтық білім және кәсіптік бағдар",
+        prog4Text: "ҚР мемлекеттік рәміздері, Конституция, құқық пен борыш; әскери жоғары оқу орындарына түсу жеңілдіктері.",
+        foundersEyebrow: "Қауымдастық",
+        foundersTitle: "Қауымдастық құрылтайшылары",
+        foundersLead: "Қауымдастықтың құрылтайшылары — ел қауіпсіздігі, қорғаныс және тарихи жады саласындағы беделді тұлғалар.",
+        f0Name: "Аманжол Зейноллаұлы Уразбаев",
+        f0Role: "«Әскери-патриоттық және іздестіру қозғалысы қауымдастығы» РҚБ төрағасы",
+        f0Bio: "ҚР ҰҚК запастағы полковнигі, заң ғылымдарының кандидаты. «BATYRLAR» әскери-патриоттық орталығының негізін қалаушы.",
+        f1Name: "Қойбақов Сейітжан Мелдебекұлы",
+        f1Role: "ҰҚК «Арыстан» арнайы бөлімшесінің бұрынғы командирі",
+        f1Bio: "Запастағы генерал-майор, заң ғылымдарының докторы.",
+        f2Name: "Сәрсеков Бексұлтан Сәрсекұлы",
+        f2Role: "ҚР Қауіпсіздік Кеңесінің бұрынғы хатшысы",
+        f2Bio: "Запастағы генерал-лейтенант, заң ғылымдарының кандидаты.",
+        f3Name: "Төлембаева Айгүл Нұралиқызы",
+        f3Role: "Қорғаныс министрінің кеңесшісі",
+        f3Bio: "Экономика ғылымдарының докторы, профессор.",
+        f4Name: "Байқадамова Алуа Бақытжанқызы",
+        f4Role: "Қоғам қайраткері",
+        f4Bio: "Генерал И.В. Панфиловтың немересі.",
+        f5Name: "Ахметова Лайла Сейсембекқызы",
+        f5Role: "Тарих ғылымдарының докторы, профессор",
+        f5Bio: "Әл-Фараби атындағы ҚазҰУ профессоры. Ұлы Отан соғысы туралы 7 кітап пен 100-ден астам жарияланымның авторы.",
+        f6Name: "Абраимов Досай Қасымұлы",
+        f6Role: "ҚР Қорғаныс министрлігінің Әскери-ғылыми орталығының бұрынғы басшысы",
+        f6Bio: "Запастағы полковник, әскери ғылымдарының докторы, профессор.",
+        f7Name: "Батырханов Ахмедияр Қуанұлы",
+        f7Role: "М. Мәметова музейінің директоры, іздестіруші",
+        f7Bio: "Ұлы Отан соғысы туралы 6 кітап пен 50-ден астам жарияланымның авторы.",
+        mentorsEyebrow: "Басшылық",
+        mentorsTitle: "Басшылық",
+        mentorsLead: "Әр жасөспірімді тәртіп, ерлік пен абырой иелері — Қарулы Күштер, ҰҚК және ІІМ офицерлері қолдайды. Бұл теоретиктер емес, әскери қызметтен өткен және тәжірибесін жаңа буынға беруге дайын тәлімгерлер.",
+        m1Name: "Аманжол Зейноллаұлы Уразбаев",
+        m1Role: "«BATYRLAR» әскери-патриоттық орталығының негізін қалаушы және Alash Camp лагерінің жетекшісі",
+        m1Bio: "ҚР ҰҚК запастағы полковнигі, заң ғылымдарының кандидаты, «Әскери-патриоттық және іздестіру қозғалысы қауымдастығы» РҚБ төрағасы. Ұлттық қауіпсіздік, ТМД Антитеррорлық орталығы мен БҰҰ құрылымдарындағы тәжірибесі бар. Орталықта стратегия, идеялық дайындық және бағдарлама мазмұнына жауапты.",
+        m2Name: "Омарбек Әмір Болатұлы",
+        m2Role: "Стратегиялық даму, цифрландыру және ЖИ жөніндегі төрағаның орынбасары",
+        m2Bio: "IT-кәсіпкер, YSOFT.KZ негізін қалаушы. ҚР Денсаулық сақтау министрлігімен бірге іске асырылған әлеуметтік-медициналық IT-жобаның авторы. IT-аналитик ретінде 14 жыл, маркетолог ретінде 8 жыл тәжірибесі бар. Бағдарламалаудан республикалық олимпиаданың жүлдегері.",
+        m3Name: "Алтынбек Айдарбекұлы Исаканов",
+        m3Role: "Жетекшінің орынбасары",
+        m3Bio: "Запастағы подполковник, С-300 әуе шабуылына қарсы қорғаныс радиоэлектрондық жүйелерінің инженері. Взвод командирінен әскери бөлім командирінің орынбасары — бас инженерге дейінгі жолдан өткен. Орталықта қолданбалы әскери дайындық пен инженерлік-техникалық модульдерге жетекшілік етеді.",
+        m4Name: "Қанат Есімбекұлы Жұмағұлов",
+        m4Role: "1-взвод командирі",
+        m4Bio: "Бастапқы әскери және технологиялық дайындық оқытушысы, педагогикалық өтілі — 23 жыл, «Разведчик» әскери-спорт клубының жетекшісі. «Айбын» және армиялық қолданбалы жекпе-жек жарыстарының жүлдегерлерін тәрбиелеген. Б. Керімбаев атындағы кадет сыныбын басқарады. Орталықта тактика, бастапқы әскери дайындық және спорт бағдарламаларын жүргізеді.",
+        baseEyebrow: "Оқу базасы",
+        baseTitle: "1 500 м² және 6 бірлік техника",
+        baseLead: "BATYRLAR орталығы 1 500 м²-ден астам ғимаратта орналасқан. Мұнда жекпе-жек залы, атыс тирі, бастапқы әскери дайындық кабинеттері, шахмат сыныбы, саптық алаң және әскери-оқу техникасының 6 бірлігі бар. Техника жасөспірімдерге практикалық таныстыру, оның тарихын, құрылымы мен мақсатын оқыту, әскери-патриоттық тәрбие және кәсіптік бағдар үшін пайдаланылады.",
+        eq1Type: "Негізгі жауынгерлік танк",
+        eq1Weight: "Салмағы: 46,5 т",
+        eq1Spec: "Ұрыс алаңында атыспен жою",
+        eq2Type: "Жаяу әскердің жауынгерлік машинасы",
+        eq2Weight: "Салмағы: 14,3 т",
+        eq2Spec: "Десантты жеткізу және қолдау",
+        eq3Type: "Бронетранспортер",
+        eq3Weight: "Салмағы: 11,5 т",
+        eq3Spec: "Жеке құрамды қорғаумен тасымалдау",
+        eq4Type: "Жауынгерлік барлау-дозорлық машина",
+        eq4Weight: "Салмағы: 7 т",
+        eq4Spec: "Барлау және бақылау",
+        eq5Type: "Гаубица",
+        eq5Weight: "Салмағы: 3,2 т",
+        eq5Spec: "Артиллериялық атыс жүйесі",
+        eq6Type: "76-мм дивизиондық зеңбірек",
+        eq6Weight: "Салмағы: 1,2 т",
+        eq6Spec: "Тарихи артиллериялық жүйе",
+        eqPower: "Жауынгерлік қуат",
+        eqMobility: "Ұтқырлық",
+        eqProtect: "Қорғаныс",
+        eqRecon: "Барлау",
+        eqRange: "Атыс қашықтығы",
+        eqHeritage: "Тарихи мұра",
+        galleryEyebrow: "Галерея",
+        galleryTitle: "Орталық өмірі",
+        galleryAlt: "BATYRLAR орталығының фотосы",
+        toursEyebrow: "BATYRLAR · 360°",
+        toursTitle: "Виртуалды турлар",
+        toursLead: "Орталықпен, шекара қалашығымен және оқу базасымен 360° форматындағы бейнелер арқылы танысыңыз.",
+        tourCenterTitle: "BATYRLAR залдары, саптық алаңы және оқу базасы",
+        tourCenterText: "BATYRLAR орталығының залдарын, саптық алаңы мен оқу базасын 360° форматында тамашалаңыз.",
+        tourBorderTitle: "Шекара қалашығына виртуалды тур",
+        tourBorderText: "Шекара қалашығы мен оның оқу инфрақұрылымымен танысыңыз.",
+        tourGearTitle: "Әскери техникаға виртуалды тур",
+        tourGearText: "BATYRLAR оқу базасындағы әскери техникамен танысыңыз.",
+        tourTentTitle: "Әскери шатыр мен спорт кешеніне виртуалды тур",
+        tourTentText: "Орталықтың әскери шатырын және спорт кешенін тамашалаңыз.",
+        reviewsEyebrow: "Пікірлер",
+        reviewsTitle: "Тәрбиеленушілер не дейді",
+        r1Quote: "«BATYRLAR» орталығы мінезімді шыңдады. Енді өзіме сенімдімін және нені мақсат ететінімді білемін.",
+        r1Name: "Айдар Нұрланұлы",
+        r1Meta: "15 жас · тәрбиеленуші",
+        r2Quote: "Офицерлер бізге тек тәртіпті ғана емес, ерлікті, жауапкершілікті және абыройды үйретеді.",
+        r2Name: "Ерасыл Мұратбек",
+        r2Meta: "16 жас · тәрбиеленуші",
+        r3Quote: "«BATYRLAR» — жай ғана үйірме емес. Бұл нағыз ер азаматтардың мектебі.",
+        r3Name: "Темірлан Сейтжан",
+        r3Meta: "15 жас · тәрбиеленуші",
+        prevReview: "Алдыңғы пікір",
+        nextReview: "Келесі пікір",
+        prevPhoto: "Алдыңғы фото",
+        nextPhoto: "Келесі фото",
+        closePhoto: "Жабу",
+        faqEyebrow: "Сұрақ-жауап",
+        faqTitle: "Жиі қойылатын сұрақтар",
+        faq1Q: "«BATYRLAR» орталығына кім жазыла алады?",
+        faq1A: "Дене, рухани және патриоттық тұрғыдан дамығысы келетін 12–17 жас аралығындағы жасөспірімдер.",
+        faq2Q: "Оқу қанша тұрады?",
+        faq2A: "Айына 10 000 теңге.",
+        faq3Q: "Сабақтар қалай өтеді?",
+        faq3A: "Орталықта, аптасына 3 рет, әр сабақ үш сағат. Демалыс күндері далалық жиындар мен шеберлік сабақтары өтеді.",
+        faq4Q: "Кім оқытады және тәлім береді?",
+        faq4A: "ҰҚК, Қорғаныс министрлігі, ІІМ арнайы бөлімшелерінің офицерлері, тәжірибелі педагогтар мен ардагерлер.",
+        faq5Q: "Түлектер не алады?",
+        faq5A: "ІІМ, Қорғаныс министрлігі және ҰҚК жоғары оқу орындарына түсуге дайындық, мінез, төзімділік пен көшбасшылық қасиеттер.",
+        contactsEyebrow: "Байланыс",
+        contactsTitle: "Сабаққа жазылыңыз",
+        addressLabel: "Мекенжай",
+        addressFull: "Астана қ., Сарайшық ауданы, Мичурино ш/а, Алакөл көшесі, 18, 1-қабат",
+        phoneLabel: "Телефон",
+        emailLabel: "Email",
+        scheduleLabel: "Оқу кестесі",
+        scheduleDays: "Дүйсенбі / Сәрсенбі / Жұма",
+        scheduleTime: "15:30 – 18:30",
+        scheduleWeekend: "Сенбі–жексенбі — демалыс",
+        formTitle: "Сабаққа жазылу",
+        waLead: "WhatsApp арқылы өтініш қалдырыңыз — біз жақын арада жауап береміз.",
+        map2gis: "2GIS",
+        footerCopy: "Әскери-патриоттық орталық",
+        footerTagline: "© Барлық құқықтар қорғалған"
+      },
+      en: {
+        skipToContent: "Skip to main content",
+        metaTitle: "Batyrlar Military-Patriotic Center — a school of courage",
+        logoAlt: "Batyrlar Military-Patriotic Center logo",
+        brandName: "BATYRLAR",
+        brandSubtitle: "Military-Patriotic Center",
+        navAbout: "About",
+        navProgram: "Program",
+        navFounders: "Founders",
+        navMentors: "Leadership",
+        navReviews: "Reviews",
+        navTours: "Virtual tours",
+        navContacts: "Contacts",
+        navFaq: "FAQ",
+        ctaEnroll: "Enroll",
+        ctaApplyNow: "Leave a request right now",
+        ctaWatch: "Watch the opening",
+        instagramAria: "Instagram",
+        menuOpen: "Open menu",
+        heroBadge: "A modern military-patriotic center of Kazakhstan",
+        heroTitleBefore: "Military-Patriotic Center Batyrlar —",
+        heroTitleAccent: " a school that builds courage",
+        heroSubtitle: "Our mission is to give young people a worthy alternative to gambling addiction, drug use and religious radicalism, inviting them to choose the bright side of life.",
+        statAge: "Age range",
+        statDays: "Sessions a week",
+        statFreeValue: "10,000 ₸",
+        statFree: "Tuition",
+        statOfficersValue: "NSC and Arystan NSC",
+        statOfficers: "Teachers and instructors",
+        videoLabel: "Opening ceremony",
+        pillar1Title: "Physical strength",
+        pillar1Text: "Martial arts, endurance, drill training.",
+        pillar2Title: "Character",
+        pillar2Text: "Emotions, stress, true masculinity.",
+        pillar3Title: "Mentors",
+        pillar3Text: "Army and special services officers.",
+        pillar4Title: "Future",
+        pillar4Text: "Admission to MIA, MoD and NSC academies.",
+        aboutEyebrow: "About the center",
+        aboutTitle: "Here they learn to take responsibility for their actions",
+        aboutLead: "The BATYRLAR Military-Patriotic Center is where teenagers receive physical, spiritual and civic-patriotic training. We combine the experience of serving and retired officers with patriotic values and give young people practical preparation for admission to NSC, MIA and Ministry of Defense universities, as well as skills they will need in life and in extreme situations.",
+        missionTitle: "Mission",
+        missionText: "To raise a new generation of strong-spirited Kazakhstanis — patriots ready to serve the Motherland, defend its interests and shape the country’s future.",
+        goalsTitle: "Goals",
+        goal1: "Comprehensive training for adolescents aged 12–17: physical, spiritual and civic.",
+        goal2: "Support the development of military-patriotic education among Kazakhstan’s youth.",
+        goal3: "Strengthen traditional Kazakh and national values, drawing on historical and spiritual heritage.",
+        aboutAgeTitle: "Mentors",
+        aboutAgeText: "Classes are led by serving and retired officers of the Army, NSC and MIA, as well as military instructors. Graduates receive preparation for admission to specialized military and law-enforcement universities.",
+        tasksTitle: "Our tasks",
+        task1: "Building character, stress resilience, responsibility and self-discipline.",
+        task2: "Leadership training, instilling discipline, tactical, physical and firearms training, and hand-to-hand combat.",
+        task3: "Mentorship from serving and retired officers of the Army, NSC and MIA of Kazakhstan.",
+        task4: "Preparation for specialized universities of the Ministry of Defense, MIA and NSC.",
+        task5: "Patriotic campaigns, competitions, intensives, camps and meetings with veterans.",
+        task6: "Volunteer projects, media content and expanding the BATYRLAR movement across regions.",
+        programEyebrow: "Curriculum",
+        programTitle: "Training tracks",
+        programSubtitle: "Four core modules based on special-unit and Armed Forces methodology.",
+        prog1Title: "Physical training and martial arts",
+        prog1Text: "Endurance and discipline are the foundation of character.",
+        prog2Title: "Emotion control and stress management",
+        prog2Text: "Training and stress resilience: building willpower.",
+        prog3Title: "Military applied skills",
+        prog3Text: "Tactical medicine, military topography and shooting simulators — real field competencies.",
+        prog4Title: "Civic education and career guidance",
+        prog4Text: "State symbols of Kazakhstan, the Constitution, rights and duty; benefits for admission to military universities.",
+        foundersEyebrow: "Association",
+        foundersTitle: "Founders of the Association",
+        foundersLead: "The Association’s founders are distinguished figures in national security, defence and historical memory.",
+        f0Name: "Amanzhol Zeinollayevich Urazbayev",
+        f0Role: "Chairman of the RPA “Association of Military-Patriotic and Search Movement”",
+        f0Bio: "Reserve Colonel of the NSC of Kazakhstan, Candidate of Legal Sciences. Founder of VPC BATYRLAR.",
+        f1Name: "Seitzhan M. Koibakov",
+        f1Role: "Former commander of the KNB special unit “Arystan”",
+        f1Bio: "Retired Major General, Doctor of Law.",
+        f2Name: "Beksultan S. Sarsekov",
+        f2Role: "Former Secretary of the Security Council of the Republic of Kazakhstan",
+        f2Bio: "Retired Lieutenant General, Candidate of Law.",
+        f3Name: "Aigul N. Tulembaeva",
+        f3Role: "Advisor to the Minister of Defence",
+        f3Bio: "Doctor of Economics, Professor.",
+        f4Name: "Alua B. Baikadamova",
+        f4Role: "Public figure",
+        f4Bio: "Granddaughter of General I.V. Panfilov.",
+        f5Name: "Laila S. Akhmetova",
+        f5Role: "Doctor of History, Professor",
+        f5Bio: "Professor at Al-Farabi Kazakh National University. Author of 7 books and more than 100 publications on the Great Patriotic War.",
+        f6Name: "Dosay K. Abraimov",
+        f6Role: "Former head of the Military-Scientific Center of the Ministry of Defence of the Republic of Kazakhstan",
+        f6Bio: "Retired Colonel, Doctor of Military Sciences, Professor.",
+        f7Name: "Akhmediyar K. Batyrkhanov",
+        f7Role: "Director of the M. Mametova Museum, search volunteer",
+        f7Bio: "Author of 6 books and more than 50 publications on the Great Patriotic War.",
+        mentorsEyebrow: "Leadership",
+        mentorsTitle: "Leadership",
+        mentorsLead: "Every teenager is supported by officers of the Army, NSC and MIA — bearers of discipline, courage and honor. Not theorists, but mentors who have served and are ready to pass on their experience.",
+        m1Name: "Amanzhol Zeinollayevich Urazbayev",
+        m1Role: "Founder of VPC BATYRLAR and director of Alash Camp",
+        m1Bio: "Reserve Colonel of the NSC of Kazakhstan, Candidate of Legal Sciences, Chairman of the RPA “Association of Military-Patriotic and Search Movement.” Experience in national security, the CIS ATC and UN structures. At the Center he leads strategy, ideological training and program content.",
+        m2Name: "Omarbek Amir Bolatuly",
+        m2Role: "Deputy Chair for strategic development, digitalization and AI",
+        m2Bio: "IT entrepreneur, founder of YSOFT.KZ. Author of a socio-medical IT project implemented with the Ministry of Health of Kazakhstan. 14 years as an IT analyst and 8 years as a marketer. Prize-winner of the Republican Olympiad in programming.",
+        m3Name: "Altynbek Aidarbekovich Isakanov",
+        m3Role: "Deputy head",
+        m3Bio: "Reserve Lieutenant Colonel, engineer of S-300 air-defense radio-electronic systems. Rose from platoon commander to deputy commander of a military unit — chief engineer. At the Center he oversees applied military training and engineering modules.",
+        m4Name: "Kanat Esimbekovich Zhumagulov",
+        m4Role: "Commander of the 1st platoon",
+        m4Bio: "Teacher of initial military and technological training with 23 years of teaching experience, head of the Razvedchik military-sports club. His cadets are prize-winners of Aibyn and army hand-to-hand championships. Leads the cadet class named after Special Forces Major B. Kerimbayev. Runs tactics, NVTP and sports programs.",
+        baseEyebrow: "Training base",
+        baseTitle: "1,500 m² and 6 training vehicles",
+        baseLead: "The BATYRLAR Center occupies a building of more than 1,500 m² with a martial-arts hall, a shooting range, NVTP classrooms, a chess class, a drill ground and 6 units of military training equipment. The vehicles are used for practical introductory training, to study history, design and purpose of military equipment, and for military-patriotic education and career guidance.",
+        eq1Type: "Main battle tank",
+        eq1Weight: "Weight: 46.5 t",
+        eq1Spec: "Fire engagement on the battlefield",
+        eq2Type: "Infantry fighting vehicle",
+        eq2Weight: "Weight: 14.3 t",
+        eq2Spec: "Troop delivery and fire support",
+        eq3Type: "Armoured personnel carrier",
+        eq3Weight: "Weight: 11.5 t",
+        eq3Spec: "Protected transport of personnel",
+        eq4Type: "Combat reconnaissance patrol vehicle",
+        eq4Weight: "Weight: 7 t",
+        eq4Spec: "Reconnaissance and observation",
+        eq5Type: "Howitzer",
+        eq5Weight: "Weight: 3.2 t",
+        eq5Spec: "Artillery fire system",
+        eq6Type: "76 mm divisional gun",
+        eq6Weight: "Weight: 1.2 t",
+        eq6Spec: "Historic artillery system",
+        eqPower: "Combat power",
+        eqMobility: "Mobility",
+        eqProtect: "Protection",
+        eqRecon: "Recon",
+        eqRange: "Firing range",
+        eqHeritage: "Heritage",
+        galleryEyebrow: "Gallery",
+        galleryTitle: "Life at the center",
+        galleryAlt: "Photo from BATYRLAR Center",
+        toursEyebrow: "BATYRLAR · 360°",
+        toursTitle: "Virtual tours",
+        toursLead: "Explore the Center, border outpost town and training base through immersive 360° videos.",
+        tourCenterTitle: "BATYRLAR halls, parade ground and training base",
+        tourCenterText: "Explore the halls, parade ground and training base of BATYRLAR in 360°.",
+        tourBorderTitle: "Virtual tour of the border outpost town",
+        tourBorderText: "Discover the border outpost town and its training facilities.",
+        tourGearTitle: "Virtual tour of military equipment",
+        tourGearText: "Discover the military equipment at the BATYRLAR training base.",
+        tourTentTitle: "Virtual tour of the military tent and sports complex",
+        tourTentText: "Take a look inside the Center's military tent and sports complex.",
+        reviewsEyebrow: "Testimonials",
+        reviewsTitle: "What cadets say",
+        r1Quote: "The BATYRLAR center tempered my character. Now I am confident and I know what I am striving for.",
+        r1Name: "Aidar Nurlanuly",
+        r1Meta: "15 years old · cadet",
+        r2Quote: "The officers teach us not only discipline, but also courage, responsibility and honor.",
+        r2Name: "Yerassyl Muratbek",
+        r2Meta: "16 years old · cadet",
+        r3Quote: "BATYRLAR is not just a club. It is a school of real men.",
+        r3Name: "Temirlan Seitzhan",
+        r3Meta: "15 years old · cadet",
+        prevReview: "Previous review",
+        nextReview: "Next review",
+        prevPhoto: "Previous photo",
+        nextPhoto: "Next photo",
+        closePhoto: "Close",
+        faqEyebrow: "FAQ",
+        faqTitle: "Frequently asked questions",
+        faq1Q: "Who can enroll at BATYRLAR?",
+        faq1A: "Teenagers aged 12–17 who want to grow physically, spiritually and patriotically.",
+        faq2Q: "How much does training cost?",
+        faq2A: "10,000 tenge per month.",
+        faq3Q: "How are classes held?",
+        faq3A: "In person, three times a week, three hours per class. Field gatherings and master classes are held on weekends.",
+        faq4Q: "Who teaches and mentors?",
+        faq4A: "Officers of NSC, MoD and MIA special units, as well as experienced teachers and veterans.",
+        faq5Q: "What do graduates receive?",
+        faq5A: "Preparation for MIA, MoD and NSC universities, plus character, endurance and leadership skills.",
+        contactsEyebrow: "Contacts",
+        contactsTitle: "Enroll for a class",
+        addressLabel: "Address",
+        addressFull: "Astana, Sarayshyk district, Michurino neighborhood, Alakol St. 18, 1st floor",
+        phoneLabel: "Phone",
+        emailLabel: "Email",
+        scheduleLabel: "Training schedule",
+        scheduleDays: "Monday / Wednesday / Friday",
+        scheduleTime: "15:30 – 18:30",
+        scheduleWeekend: "Saturday–Sunday — days off",
+        formTitle: "Sign up for a class",
+        waLead: "Leave a request on WhatsApp — we will reply shortly.",
+        map2gis: "2GIS",
+        footerCopy: "Military-Patriotic Center",
+        footerTagline: "© All rights reserved"
+      },
+      ru: {
+        skipToContent: "Перейти к основному содержимому",
+        metaTitle: "Военно-патриотический центр Batyrlar — школа воспитания Мужества",
+        logoAlt: "Логотип военно-патриотического центра Batyrlar",
+        brandName: "BATYRLAR",
+        brandSubtitle: "Военно-патриотический центр",
+        navAbout: "О центре",
+        navProgram: "Программа",
+        navFounders: "Учредители",
+        navMentors: "Руководство",
+        navReviews: "Отзывы",
+        navTours: "Виртуальные туры",
+        navContacts: "Контакты",
+        navFaq: "Вопросы",
+        ctaEnroll: "Записаться",
+        ctaApplyNow: "Оставить заявку прямо сейчас",
+        ctaWatch: "Смотреть открытие центра",
+        instagramAria: "Instagram",
+        menuOpen: "Открыть меню",
+        heroBadge: "Современный военно-патриотический центр Казахстана",
+        heroTitleBefore: "Военно-патриотический центр Batyrlar —",
+        heroTitleAccent: " школа воспитания Мужества",
+        heroSubtitle: "Наша миссия - дать молодежи достойную альтернативу лудомании, наркомании и религиозному радикализму, предлагая выбрать светлую сторону жизни.",
+        statAge: "Возраст",
+        statDays: "Занятий в неделю",
+        statFreeValue: "10 000 ₸",
+        statFree: "Стоимость обучения",
+        statOfficersValue: "КНБ и Арыстан КНБ",
+        statOfficers: "Преподаватели и инструкторы",
+        videoLabel: "ЦЕРЕМОНИЯ ОТКРЫТИЯ",
+        pillar1Title: "Физическая сила",
+        pillar1Text: "Единоборства, выносливость, строевая подготовка.",
+        pillar2Title: "Характер",
+        pillar2Text: "Эмоции, стресс, мужественность.",
+        pillar3Title: "Наставники",
+        pillar3Text: "Офицеры армии и спецслужб.",
+        pillar4Title: "Будущее",
+        pillar4Text: "Поступление в МВД, МО, КНБ.",
+        aboutEyebrow: "О центре",
+        aboutTitle: "Здесь учат отвечать за свои поступки",
+        aboutLead: "Военно-патриотический центр «BATYRLAR» — место, где подростки получают физическую, духовную и гражданско-патриотическую подготовку. Мы объединяем опыт действующих и отставных офицеров с патриотическими ценностями и даём подросткам практическую подготовку для дальнейшего поступления в вузы КНБ, МВД, Министерства обороны, а также навыки, которые пригодятся в жизни и экстремальных ситуациях.",
+        missionTitle: "Миссия",
+        missionText: "Воспитать новое поколение сильных духом казахстанцев — патриотов, готовых служить Родине, защищать её интересы и формировать будущее страны.",
+        goalsTitle: "Цели",
+        goal1: "Комплексная подготовка подростков от 12 до 17 лет: физическая, духовная и гражданская.",
+        goal2: "Содействие развитию системы военно-патриотического воспитания среди молодёжи Казахстана.",
+        goal3: "Укрепление традиционных казахских и общенациональных ценностей, опора на историческое и духовное наследие.",
+        aboutAgeTitle: "Наставники",
+        aboutAgeText: "Занятия проводят действующие и отставные офицеры армии, КНБ и МВД, а также военные инструкторы. Выпускники получают подготовку для поступления в профильные военные и правоохранительные вузы.",
+        tasksTitle: "Задачи центра",
+        task1: "Формирование характера, устойчивости к стрессу, ответственности и самодисциплины.",
+        task2: "Воспитание Лидерства, привитие дисциплины, тактическая, физическая, огневая подготовка, рукопашный бой.",
+        task3: "Наставничество действующих и отставных офицеров армии, КНБ и МВД РК.",
+        task4: "Подготовка к поступлению в профильные вузы Министерства обороны, МВД и КНБ.",
+        task5: "Патриотические акции, соревнования, интенсивы, лагеря и встречи с ветеранами.",
+        task6: "Волонтёрские проекты, медиаконтент и расширение движения «BATYRLAR» по регионам.",
+        programEyebrow: "Программа обучения",
+        programTitle: "Направления",
+        programSubtitle: "Четыре ключевых модуля на методиках спецподразделений и Вооружённых сил.",
+        prog1Title: "Физическая подготовка и единоборства",
+        prog1Text: "Выносливость и дисциплина — основа формирования характера.",
+        prog2Title: "Управление эмоциями и стресс-менеджмент",
+        prog2Text: "Тренинги, устойчивость к стрессу: воспитание силы воли.",
+        prog3Title: "Военно-прикладные навыки",
+        prog3Text: "Тактическая медицина, военная топография, стрелковые тренажёры — реальные полевые компетенции.",
+        prog4Title: "Гражданское образование и профориентация",
+        prog4Text: "Символика РК, Конституция, права и долг; льготы при поступлении в военные вузы.",
+        foundersEyebrow: "Ассоциация",
+        foundersTitle: "Учредители ассоциации",
+        foundersLead: "Учредители ассоциации — авторитетные деятели в сфере национальной безопасности, обороны и исторической памяти.",
+        f0Name: "Аманжол Зейноллаевич Уразбаев",
+        f0Role: "Председатель РОО «Ассоциация военно-патриотического и поискового движения»",
+        f0Bio: "Полковник запаса КНБ РК, кандидат юридических наук. Основатель ВПЦ «BATYRLAR».",
+        f1Name: "Койбаков Сейтжан Мельдебекович",
+        f1Role: "Экс-командир спецподразделения КНБ «Арыстан»",
+        f1Bio: "Генерал-майор в отставке, доктор юридических наук.",
+        f2Name: "Сарсеков Бексултан Сарсекович",
+        f2Role: "Экс-секретарь Совета Безопасности РК",
+        f2Bio: "Генерал-лейтенант в отставке, кандидат юридических наук.",
+        f3Name: "Тулембаева Айгуль Нуралиевна",
+        f3Role: "Советник Министра обороны",
+        f3Bio: "Доктор экономических наук, профессор.",
+        f4Name: "Байкадамова Алуа Бахытжановна",
+        f4Role: "Общественный деятель",
+        f4Bio: "Внучка генерала И.В. Панфилова.",
+        f5Name: "Ахметова Лайла Сейсембековна",
+        f5Role: "Доктор исторических наук, профессор",
+        f5Bio: "Профессор КазНУ им. Аль-Фараби. Автор 7 книг и более 100 публикаций по Великой Отечественной войне.",
+        f6Name: "Абраимов Досай Касымович",
+        f6Role: "Экс-руководитель Военно-научного центра МО РК",
+        f6Bio: "Полковник в отставке, доктор военных наук, профессор.",
+        f7Name: "Батырханов Ахмедияр Куанович",
+        f7Role: "Директор музея М. Маметовой, поисковик",
+        f7Bio: "Автор 6 книг и более 50 публикаций по Великой Отечественной войне.",
+        mentorsEyebrow: "Руководство",
+        mentorsTitle: "Руководство",
+        mentorsLead: "Каждого подростка поддерживают офицеры армии, КНБ и МВД — носители дисциплины, мужества и чести. Это не теоретики, а наставники, прошедшие службу и готовые передать опыт новому поколению.",
+        m1Name: "Аманжол Зейноллаевич Уразбаев",
+        m1Role: "Основатель ВПЦ «BATYRLAR» и руководитель лагеря Alash Camp",
+        m1Bio: "Полковник запаса КНБ РК, кандидат юридических наук, председатель РОО «Ассоциация военно-патриотического и поискового движения». Опыт в сфере национальной безопасности, Антитеррористическом центре СНГ и структурах ООН. В Центре отвечает за стратегию, идеологическую подготовку и содержание программ.",
+        m2Name: "Омарбек Әмір Болатұлы",
+        m2Role: "Заместитель Председателя по стратегическому развитию, цифровизации и ИИ",
+        m2Bio: "IT-предприниматель, основатель YSOFT.KZ. Автор социально-медицинского IT-проекта, реализованного совместно с Министерством здравоохранения РК. IT-аналитик с 14-летним стажем, маркетолог с 8-летним стажем. Призёр Республиканской олимпиады по программированию.",
+        m3Name: "Алтынбек Айдарбекович Исаканов",
+        m3Role: "Заместитель руководителя",
+        m3Bio: "Подполковник запаса, инженер по радиоэлектронным системам ПВО С-300. Прошёл путь от командира взвода до заместителя командира войсковой части — главного инженера. В Центре курирует прикладную военную подготовку и инженерно-технические модули.",
+        m4Name: "Канат Есимбекович Жумагулов",
+        m4Role: "Командир 1 взвода",
+        m4Bio: "Преподаватель НВТП с 23-летним педагогическим стажем, руководитель военно-спортивного клуба «Разведчик». Его воспитанники — призёры «Айбын» и чемпионатов по армейскому рукопашному бою. Возглавляет кадетский класс имени майора спецназа Б. Керимбаева. Ведёт тактику, систему НВТП и спортивные программы.",
+        baseEyebrow: "Учебная база",
+        baseTitle: "1 500 м² и 6 единиц техники",
+        baseLead: "Центр BATYRLAR располагается в здании площадью более 1 500 м² с залом единоборств, стрелковым тиром, кабинетами НВП, шахматным классом, а также строевым плацем и 6 единицами военно-учебной техники. Техника используется для практического учебно-ознакомительного обучения подростков, знакомства с историей, устройством и назначением военной техники, а также для военно-патриотического воспитания и профориентации.",
+        eq1Type: "Основной боевой танк",
+        eq1Weight: "Масса: 46,5 т",
+        eq1Spec: "Огневое поражение на поле боя",
+        eq2Type: "Боевая машина пехоты",
+        eq2Weight: "Масса: 14,3 т",
+        eq2Spec: "Доставка и поддержка десанта",
+        eq3Type: "Бронетранспортёр",
+        eq3Weight: "Масса: 11,5 т",
+        eq3Spec: "Перевозка личного состава под защитой",
+        eq4Type: "Боевая разведывательно-дозорная машина",
+        eq4Weight: "Масса: 7 т",
+        eq4Spec: "Разведка и наблюдение",
+        eq5Type: "Гаубица",
+        eq5Weight: "Масса: 3,2 т",
+        eq5Spec: "Артиллерийская огневая система",
+        eq6Type: "76-мм дивизионная пушка",
+        eq6Weight: "Масса: 1,2 т",
+        eq6Spec: "Историческая артиллерийская система",
+        eqPower: "Боевая мощь",
+        eqMobility: "Подвижность",
+        eqProtect: "Защита",
+        eqRecon: "Разведка",
+        eqRange: "Дальность стрельбы",
+        eqHeritage: "Историческое наследие",
+        galleryEyebrow: "Галерея",
+        galleryTitle: "Жизнь центра",
+        galleryAlt: "Фотография центра BATYRLAR",
+        toursEyebrow: "BATYRLAR · 360°",
+        toursTitle: "Виртуальные туры",
+        toursLead: "Познакомьтесь с центром, пограничным городком и учебной базой в формате видео 360°.",
+        tourCenterTitle: "Залы, плац и учебная база BATYRLAR",
+        tourCenterText: "Осмотрите залы, плац и учебную базу BATYRLAR в формате 360°.",
+        tourBorderTitle: "Виртуальный тур по пограничному городку",
+        tourBorderText: "Загляните в пограничный городок и познакомьтесь с его учебной инфраструктурой.",
+        tourGearTitle: "Виртуальный тур по военной технике",
+        tourGearText: "Познакомьтесь с военной техникой учебной базы BATYRLAR.",
+        tourTentTitle: "Виртуальный тур по военной палатке и спортивному комплексу",
+        tourTentText: "Осмотрите военную палатку и спортивный комплекс центра.",
+        reviewsEyebrow: "Отзывы",
+        reviewsTitle: "Что говорят воспитанники",
+        r1Quote: "Центр «BATYRLAR» закалил мой характер. Теперь я уверен в себе и знаю, к чему стремлюсь.",
+        r1Name: "Айдар Нұрланұлы",
+        r1Meta: "15 лет · воспитанник",
+        r2Quote: "Офицеры учат нас не только дисциплине, но и мужеству, ответственности и чести.",
+        r2Name: "Ерасыл Муратбек",
+        r2Meta: "16 лет · воспитанник",
+        r3Quote: "«BATYRLAR» — это не просто кружок. Это школа настоящих мужчин.",
+        r3Name: "Темирлан Сейтжан",
+        r3Meta: "15 лет · воспитанник",
+        prevReview: "Предыдущий отзыв",
+        nextReview: "Следующий отзыв",
+        prevPhoto: "Предыдущее фото",
+        nextPhoto: "Следующее фото",
+        closePhoto: "Закрыть",
+        faqEyebrow: "Вопросы и ответы",
+        faqTitle: "Частые вопросы",
+        faq1Q: "Кто может записаться в центр «BATYRLAR»?",
+        faq1A: "Подростки в возрасте от 12 до 17 лет, желающие развиваться физически, духовно и патриотически.",
+        faq2Q: "Сколько стоит обучение в центре?",
+        faq2A: "10.000 тенге в месяц.",
+        faq3Q: "Как проходят занятия?",
+        faq3A: "Очно, 3 раза в неделю по три часа. В выходные проводятся полевые сборы и мастер-классы.",
+        faq4Q: "Кто преподаёт и наставляет?",
+        faq4A: "Офицеры спецподразделений КНБ, МО, МВД, а также опытные педагоги и ветераны.",
+        faq5Q: "Что получают выпускники?",
+        faq5A: "Подготовку к поступлению в вузы МВД, МО и КНБ, развитие характера, выносливости и лидерских качеств.",
+        contactsEyebrow: "Контакты",
+        contactsTitle: "Запишитесь на занятие",
+        addressLabel: "Адрес",
+        addressFull: "г. Астана, район Сарайшык, ж/м Мичурино, ул. Алаколь, 18, 1 этаж",
+        phoneLabel: "Телефон",
+        emailLabel: "Email",
+        scheduleLabel: "График обучения",
+        scheduleDays: "Понедельник / Среда / Пятница",
+        scheduleTime: "15:30 – 18:30",
+        scheduleWeekend: "Суббота–воскресенье — выходной",
+        formTitle: "Записаться на занятие",
+        waLead: "Оставьте заявку в WhatsApp — мы ответим в ближайшее время.",
+        map2gis: "2GIS",
+        footerCopy: "Военно-патриотический центр",
+        footerTagline: "© Все права защищены"
+      }
+    };
+
+    const LANGS = ["kz", "en", "ru"];
+    const htmlLang = { kz: "kk", en: "en", ru: "ru" };
+    let currentLang = "kz";
+
+    function readLang() {
+      try { return localStorage.getItem("batyrlar-lang"); } catch (e) { return null; }
+    }
+    function saveLang(lang) {
+      try { localStorage.setItem("batyrlar-lang", lang); } catch (e) {}
+    }
+
+    function applyLang(lang) {
+      if (!LANGS.includes(lang)) lang = "kz";
+      currentLang = lang;
+      saveLang(lang);
+      document.documentElement.lang = htmlLang[lang];
+      const dict = translations[lang];
+      document.title = dict.metaTitle;
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[key] != null) el.textContent = dict[key];
+      });
+      document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+        const key = el.getAttribute("data-i18n-placeholder");
+        if (dict[key] != null) el.placeholder = dict[key];
+      });
+      document.querySelectorAll("[data-i18n-aria]").forEach((el) => {
+        const key = el.getAttribute("data-i18n-aria");
+        if (dict[key] != null) el.setAttribute("aria-label", dict[key]);
+      });
+      document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
+        const key = el.getAttribute("data-i18n-alt");
+        if (dict[key] != null) el.setAttribute("alt", dict[key]);
+      });
+      document.querySelectorAll("[data-i18n-title]").forEach((el) => {
+        const key = el.getAttribute("data-i18n-title");
+        if (dict[key] != null) el.setAttribute("title", dict[key]);
+      });
+      document.querySelectorAll(".lang-btn").forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.lang === lang);
+      });
+    }
+
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+      btn.addEventListener("click", () => applyLang(btn.dataset.lang));
+    });
+
+    const saved = readLang();
+    applyLang(LANGS.includes(saved) ? saved : "kz");
+
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    const burger = document.getElementById("burger");
+    const mobileMenu = document.getElementById("mobileMenu");
+    function closeMenu() {
+      if (!mobileMenu) return;
+      mobileMenu.classList.remove("open");
+      if (burger) burger.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    }
+    function openMenu() {
+      mobileMenu.classList.add("open");
+      if (burger) burger.setAttribute("aria-expanded", "true");
+      document.body.style.overflow = "hidden";
+    }
+    if (burger && mobileMenu) {
+      burger.addEventListener("click", () => {
+        if (mobileMenu.classList.contains("open")) closeMenu();
+        else openMenu();
+      });
+    }
+    document.querySelectorAll("[data-close-menu], .mobile-link").forEach((el) => el.addEventListener("click", closeMenu));
+    document.querySelectorAll("#faqList details").forEach((item) => {
+      item.addEventListener("toggle", () => {
+        if (item.open) {
+          document.querySelectorAll("#faqList details").forEach((other) => {
+            if (other !== item) other.open = false;
+          });
+        }
+      });
+    });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
+
+    let reviewIndex = 0;
+    const slides = document.querySelectorAll(".review-slide");
+    const tabs = document.querySelectorAll(".tab-btn");
+    function showReview(i) {
+      reviewIndex = (i + slides.length) % slides.length;
+      slides.forEach((s, idx) => s.classList.toggle("hidden", idx !== reviewIndex));
+      tabs.forEach((t, idx) => {
+        t.classList.toggle("active", idx === reviewIndex);
+        t.classList.toggle("text-slate-600", idx !== reviewIndex);
+      });
+    }
+    tabs.forEach((t) => t.addEventListener("click", () => showReview(Number(t.dataset.tab))));
+    const prevReview = document.getElementById("prevReview");
+    const nextReview = document.getElementById("nextReview");
+    if (prevReview) prevReview.addEventListener("click", () => showReview(reviewIndex - 1));
+    if (nextReview) nextReview.addEventListener("click", () => showReview(reviewIndex + 1));
+    setInterval(() => showReview(reviewIndex + 1), 8000);
+    showReview(0);
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const revealEls = Array.from(document.querySelectorAll(".reveal"));
+    if (!reduceMotion && revealEls.length) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("show"); });
+      }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+      revealEls.forEach((el, i) => {
+        el.style.setProperty("--d", ((i % 6) * 0.07) + "s");
+        io.observe(el);
+      });
+      revealEls.forEach((el) => {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight * 0.9) el.classList.add("show");
+      });
+      document.documentElement.classList.add("motion");
+    }
+
+    const headerEl = document.getElementById("header");
+    const parallaxEls = Array.from(document.querySelectorAll("[data-parallax]"));
+    const onScrollFx = () => {
+      const y = window.scrollY || 0;
+      if (headerEl) headerEl.classList.toggle("is-scrolled", y > 18);
+      if (reduceMotion) return;
+      document.body.style.backgroundPosition = "0 " + (y * 0.22) + "px";
+      parallaxEls.forEach((el) => {
+        const speed = parseFloat(el.getAttribute("data-parallax")) || 0.12;
+        el.style.transform = "translate3d(0," + (y * speed) + "px,0)";
+      });
+    };
+    window.addEventListener("scroll", onScrollFx, { passive: true });
+    onScrollFx();
+
+    const lb = document.getElementById("lightbox");
+    if (lb) {
+      const lbImg = lb.querySelector("img");
+      const lbCount = document.getElementById("lbCount");
+      const galleryBtns = Array.from(document.querySelectorAll(".gallery-grid button"));
+      let lbIndex = 0;
+
+      function openLightbox(index) {
+        if (!galleryBtns.length) return;
+        lbIndex = (index + galleryBtns.length) % galleryBtns.length;
+        const src = galleryBtns[lbIndex].getAttribute("data-full");
+        lbImg.src = src;
+        if (lbCount) lbCount.textContent = (lbIndex + 1) + " / " + galleryBtns.length;
+        lb.classList.add("open");
+        lb.setAttribute("aria-hidden", "false");
+      }
+      function closeLightbox() {
+        lb.classList.remove("open");
+        lb.setAttribute("aria-hidden", "true");
+        lbImg.src = "";
+      }
+      function stepLightbox(dir) {
+        openLightbox(lbIndex + dir);
+      }
+
+      galleryBtns.forEach((btn, i) => {
+        btn.addEventListener("click", () => openLightbox(i));
+      });
+      const galleryPrev = document.getElementById("galleryPrev");
+      const galleryNext = document.getElementById("galleryNext");
+      if (galleryPrev) galleryPrev.addEventListener("click", () => openLightbox(lb.classList.contains("open") ? lbIndex - 1 : galleryBtns.length - 1));
+      if (galleryNext) galleryNext.addEventListener("click", () => openLightbox(lb.classList.contains("open") ? lbIndex + 1 : 0));
+      lb.querySelector("[data-lb-prev]").addEventListener("click", (e) => { e.stopPropagation(); stepLightbox(-1); });
+      lb.querySelector("[data-lb-next]").addEventListener("click", (e) => { e.stopPropagation(); stepLightbox(1); });
+      lb.querySelector("[data-close-lb]").addEventListener("click", (e) => { e.stopPropagation(); closeLightbox(); });
+      lbImg.addEventListener("click", (e) => e.stopPropagation());
+      lb.addEventListener("click", closeLightbox);
+      document.addEventListener("keydown", (e) => {
+        if (!lb.classList.contains("open")) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowLeft") stepLightbox(-1);
+        if (e.key === "ArrowRight") stepLightbox(1);
+      });
+    }
+  </script>
+</body>
+</html>
