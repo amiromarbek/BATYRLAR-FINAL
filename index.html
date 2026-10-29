@@ -10,8 +10,8 @@
   <meta name="description" content="Batyrlar — 12–17 жас аралығындағы жасөспірімдерге арналған әскери-патриоттық орталық. Дене, рухани және азаматтық дайындық." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" /></noscript>
   <script>
     tailwind.config = {
       theme: {
@@ -38,6 +38,7 @@
       }
     };
   </script>
+  <script src="https://cdn.tailwindcss.com" defer></script>
   <style>
     :root { color-scheme: light; }
     html { scroll-behavior: smooth; scroll-padding-top: 100px; overflow-x: hidden; }
